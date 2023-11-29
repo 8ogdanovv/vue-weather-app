@@ -9,7 +9,7 @@
       </a>
     </section>
     <p class="authority flex-center-between">
-      © 2023 Vadym Chervoniak
+      <span class="name">© 2023 {{$t('author')}}</span>
       <a href="https://github.com/vadym4che/" target="_blank">
         <img :src="githubImg" class="logo git" alt="GitHub logo"/>
       </a>
@@ -73,5 +73,11 @@ onMounted(() => {
 
 .authority {
   color: var(--gray);
+  display: flex;
+}
+
+.name {
+  width: 25ch;
+  text-align: right;
 }
 </style>

@@ -7,12 +7,14 @@ const messages = {
     hello: 'Hello!',
     welcome: 'Welcome!',
     flag: './Flag_of_the_United_Kingdom.png',
+    author: 'Vadym Chervoniak'
   },
   uk: {
     lang: 'Ukrainian',
     hello: 'Привіт!',
     welcome: 'Ласкаво просимо!',
     flag: './Flag_of_Ukraine.png',
+    author: 'Вадим Червоняк'
   },
 };
 
