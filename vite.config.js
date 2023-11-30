@@ -1,13 +1,14 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
-// import eslint from 'vite-plugin-eslint'
+import dotenv from 'dotenv'
+
+// Load environment variables from .env
+dotenv.config()
 
 // https://vitejs.dev/config/
-// Access the GHP_APP_BASE variable from .env
 export default defineConfig(({ mode }) => {
-
-  const base = mode === 'production' ? import.meta.env.VITE_GHP_BASE : '/'
+  const base = mode === 'production' ? process.env.VITE_GHP_BASE : '/'
 
   return {
     plugins: [
