@@ -3,36 +3,36 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, watch } from 'vue';
+import { ref, computed, onMounted, watch } from 'vue'
 
 // Define a reactive variable for the theme
-const theme = ref('light');
+const theme = ref('light')
 // Define a reactive variable for the themeIcon
-const themeIcon = ref('');
+const themeIcon = ref('')
 
 // Computed property for dynamic title
-const themeTogglerTip = computed(() => `Turn the lights ${theme.value === 'light' ? 'OFF 🌑' : 'ON ☀️'}`);
+const themeTogglerTip = computed(() => `Turn the lights ${theme.value === 'light' ? 'OFF 🌑' : 'ON ☀️'}`)
 
 // Function to toggle the theme
 const toggleTheme = () => {
-  const newTheme = theme.value === 'light' ? 'dark' : 'light';
-  themeIcon.value = newTheme === 'light' ? '🌚' : '🌞';
-  theme.value = newTheme;
-  localStorage.setItem('theme', newTheme);
-};
+  const newTheme = theme.value === 'light' ? 'dark' : 'light'
+  themeIcon.value = newTheme === 'light' ? '🌚' : '🌞'
+  theme.value = newTheme
+  localStorage.setItem('theme', newTheme)
+}
 
 // Watch for changes in the theme and update CSS custom properties accordingly
 watch(theme, (newTheme) => {
-  document.documentElement.setAttribute('data-theme', newTheme);
-});
+  document.documentElement.setAttribute('data-theme', newTheme)
+})
 
 // Use the onMounted hook to perform actions after the component is mounted
 onMounted(() => {
-  const savedTheme = localStorage.getItem('theme') || 'light';
-  theme.value = savedTheme;
-  document.documentElement.setAttribute('data-theme', savedTheme);
-  themeIcon.value = savedTheme === 'light' ? '🌚' : '🌞';
-});
+  const savedTheme = localStorage.getItem('theme') || 'light'
+  theme.value = savedTheme
+  document.documentElement.setAttribute('data-theme', savedTheme)
+  themeIcon.value = savedTheme === 'light' ? '🌚' : '🌞'
+})
 
 </script>
 

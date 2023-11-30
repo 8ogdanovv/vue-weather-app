@@ -1,6 +1,11 @@
 import { createApp } from 'vue'
-import './style.css'
 import App from './App.vue'
-import i18n from './i18n'
+import './style.css'
 
-createApp(App).use(i18n).mount('#app')
+import i18n from './i18n'
+import { clickOutside } from './clickOutside'
+
+const app = createApp(App)
+
+app.directive('click-outside', clickOutside)
+app.use(i18n).mount('#app')

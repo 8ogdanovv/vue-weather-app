@@ -1,5 +1,4 @@
-// src/i18n.js
-import { createI18n } from 'vue-i18n';
+import { createI18n } from 'vue-i18n'
 
 const messages = {
   en: {
@@ -16,12 +15,12 @@ const messages = {
     flag: './Flag_of_Ukraine.png',
     author: 'Вадим Червоняк'
   },
-};
+}
 
 const i18n = createI18n({
   locale: localStorage.getItem('lang') || 'en',
   fallbackLocale: 'en',
   messages,
-});
+})
 
-export default i18n;
+export default i18n

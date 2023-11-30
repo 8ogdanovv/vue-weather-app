@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import ToggleLang from '@/components/ToggleLang.vue';
+import ToggleLang from '@/components/ToggleLang.vue'
 </script>
 
 <style lang="scss">
