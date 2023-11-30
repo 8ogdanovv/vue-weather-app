@@ -8,7 +8,7 @@
         <img src="/vue.svg" class="logo vue" alt="Vue logo" />
       </a>
     </section>
-    <p class="authority flex-center-between">
+    <p class="authority flex-center-center">
       <span class="name">© 2023 {{$t('author')}}</span>
       <a href="https://github.com/vadym4che/" target="_blank">
         <img :src="githubImg" class="logo git" alt="GitHub logo"/>
@@ -27,7 +27,7 @@ import { ref, computed, onMounted } from 'vue'
 const isLightTheme = ref(true)
 
 // Get proper gray or white github logo depending on global color scheme
-const githubImg = computed(() => isLightTheme.value ? '../assets/github-mark.svg' : '../assets/github-mark-white.svg')
+const githubImg = computed(() => isLightTheme.value ? './gh.svg' : './gh-white.svg')
 
 // Use the onMounted hook to set the theme based on local storage
 onMounted(() => {
@@ -74,10 +74,14 @@ onMounted(() => {
 .authority {
   color: var(--gray);
   display: flex;
+  position: absolute;
+  left: -5dvw;
+  width: 100%;
 }
 
 .name {
-  width: 25ch;
+  width: 25dvw;
   text-align: right;
 }
+
 </style>

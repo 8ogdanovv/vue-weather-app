@@ -9,6 +9,8 @@
 
   background: var(--background);
   color: var(--color);
+
+  font-size: 0.9vmax;
 }
 
 a {
@@ -70,3 +72,10 @@ button:focus-visible {
   align-items: center;
   justify-content: flex-start;
 }
+
+.flex-center-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
