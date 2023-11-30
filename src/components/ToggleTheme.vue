@@ -42,16 +42,18 @@ onMounted(() => {
 [data-theme="dark"] {
   --background: #000;
   --gray: #ccc;
+  --grey: #8888;
   --color: #fff;
-  --shadow: #fff8;
+  --shadow: #fff4;
 }
 
 /* Styles for light mode */
 [data-theme="light"] {
   --background: #fff;
   --gray: #222;
+  --grey: #8886;
   --color: #000;
-  --shadow: #0008;
+  --shadow: #0004;
 }
 
 .theme-toggler {
@@ -59,5 +61,7 @@ onMounted(() => {
   border: none;
   padding: 1rem;
   font-size: 4rem;
+  position: relative;
+  z-index: 5;
 }
 </style>

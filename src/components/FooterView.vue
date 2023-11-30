@@ -13,7 +13,7 @@
       <a href="https://github.com/vadym4che/" target="_blank">
         <img :src="githubImg" class="logo git" alt="GitHub logo"/>
       </a>
-      (č) vadym4che
+      <span class="abc">(č) vadym4che</span>
     </p>
     <toggle-theme />
   </footer>
@@ -45,15 +45,19 @@ onMounted(() => {
   bottom: 0;
   left: 0;
   width: 100%;
-  box-shadow: 0 0 2.5rem 0.5rem var(--shadow);
+  background: linear-gradient(315deg, var(--gray) 5%, transparent 66%, var(--grey) 100%);
+  box-shadow: 0 0 1.5rem 0.25rem var(--shadow);
+  padding: 0 2rem;
 }
 
 /* Styles for the logos */
 .logo {
-  height: 4em;
-  padding: 1em;
+  height: 6rem;
+  padding: 1rem;
   will-change: filter;
   transition: filter 300ms;
+  position: relative;
+  z-index: 5;
 }
 
 /* Hover effect for Vite logo */
@@ -75,13 +79,22 @@ onMounted(() => {
   color: var(--gray);
   display: flex;
   position: absolute;
-  left: -5dvw;
-  width: 100%;
+  width: 60dvw;
+  left: 20dvw;
 }
 
 .name {
-  width: 25dvw;
   text-align: right;
+}
+
+.name,
+.abc {
+  display: block;
+  width: 25dvw;
+}
+
+.abc {
+  text-align: left;
 }
 
 </style>

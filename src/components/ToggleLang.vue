@@ -74,27 +74,33 @@ onMounted(async () => {
 }
 
 .select {
-  top: 0rem;
-  left: 0;
+  top: 1rem;
+  left: 2rem;
   list-style: none;
-  padding: 0;
   margin: 0;
+  border-radius: 0.5rem;
+  padding: 0 0;
 
   position: absolute;
   display: flex;
+
   flex-direction: column;
   overflow: hidden;
 
-  width: 10rem;
+  width: 13rem;
   height: auto;
 
+  background: var(--grey);
+  box-shadow: inset 0 0 0.5rem 0.25rem var(--shadow);
+
   &-option {
-    width: 10rem;
-    height: 6rem;
+    padding: 1rem 1rem;
+
     &-img {
-      width: 100%;
+      width: 10rem;
       height: 6rem;
-      padding: 0 !important;
+      box-shadow: 0 0 0.5rem 0.25rem var(--shadow);
+      border-radius: 0.5rem;
     }
   }
 
@@ -102,12 +108,12 @@ onMounted(async () => {
 }
 
 .close {
-  height: 6rem !important;
-  z-index: 15;
+  height: 8rem;
+  z-index: 5;
 }
 
 .open {
-  height: 12rem;
+  height: 16.5rem;
 }
 
 .selected {
