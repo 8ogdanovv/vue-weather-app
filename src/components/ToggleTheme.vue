@@ -1,17 +1,14 @@
 <template>
-  <button @click="toggleTheme" class="theme-toggler" :title="themeTogglerTip">{{ themeIcon }}</button>
+  <button @click="toggleTheme" class="theme-toggler" :title="$t('toggleThemeTip')">{{ themeIcon }}</button>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, watch } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 
 // Define a reactive variable for the theme
 const theme = ref('light')
 // Define a reactive variable for the themeIcon
 const themeIcon = ref('')
-
-// Computed property for dynamic title
-const themeTogglerTip = computed(() => `Turn the lights ${theme.value === 'light' ? 'OFF 🌑' : 'ON ☀️'}`)
 
 // Function to toggle the theme
 const toggleTheme = () => {

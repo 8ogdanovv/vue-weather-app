@@ -1,5 +1,5 @@
 <template>
-  <section class="toggle-lang flex-center-start">
+  <section class="toggle-lang flex-center-start" :title="$t('toggleLangTip')">
     <menu
       v-click-outside="closeMenu"
       class="select"
@@ -69,6 +69,10 @@ onMounted(async () => {
 </script>
 
 <style lang="scss">
+.toggle-lang {
+  cursor: pointer;
+}
+
 .select {
   top: 0rem;
   left: 0;
