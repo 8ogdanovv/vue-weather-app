@@ -1,12 +1,12 @@
 <template>
   <header-view />
-  <h1>{{ $t('hello') }}</h1>
-  <p>{{ $t('welcome') }}</p>
+  <router-view />
   <footer-view />
 </template>
 
 <script setup>
 import HeaderView from '@/components/HeaderView.vue'
+import router from '@/router';
 import FooterView from '@/components/FooterView.vue'
 </script>
 
