@@ -25,12 +25,16 @@ watch(theme, (newTheme) => {
 
 // Use the onMounted hook to perform actions after the component is mounted
 onMounted(() => {
-  const savedTheme = localStorage.getItem('theme') || 'light'
-  theme.value = savedTheme
-  document.documentElement.setAttribute('data-theme', savedTheme)
-  themeIcon.value = savedTheme === 'light' ? '🌚' : '🌞'
-})
+  // Check if the user has a preferred color scheme
+  const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
+  // Use the user's preference if available, otherwise, use the saved theme or default to light
+  const savedTheme = localStorage.getItem('theme') || (prefersDarkMode ? 'dark' : 'light');
+
+  theme.value = savedTheme;
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  themeIcon.value = savedTheme === 'light' ? '🌚' : '🌞';
+})
 </script>
 
 <style>

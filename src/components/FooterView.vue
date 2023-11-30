@@ -27,7 +27,7 @@ import { ref, computed, onMounted } from 'vue'
 const isLightTheme = ref(true)
 
 // Get proper gray or white github logo depending on global color scheme
-const githubImg = computed(() => isLightTheme.value ? '/github-mark.svg' : '/github-mark-white.svg')
+const githubImg = computed(() => isLightTheme.value ? '../assets/github-mark.svg' : '../assets/github-mark-white.svg')
 
 // Use the onMounted hook to set the theme based on local storage
 onMounted(() => {
