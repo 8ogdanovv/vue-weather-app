@@ -90,7 +90,7 @@ onMounted(() => {
 .name,
 .abc {
   display: block;
-  width: 25dvw;
+  width: 25ch;
 }
 
 .abc {
