@@ -1,12 +1,11 @@
 <template>
   <nav class="flex-center-center">
-    <router-link to="/">Home</router-link>
-    <router-link to="/favorites">Favorites</router-link>
+    <router-link to="/">{{$t('weather')}}📈</router-link>
+    <router-link to="/favorites">{{$t('cities')}}📌</router-link>
   </nav>
 </template>
 
 <script setup>
-
 </script>
 
 <style lang="scss">

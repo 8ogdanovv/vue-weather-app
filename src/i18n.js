@@ -9,6 +9,13 @@ const messages = {
     author: 'Vadym Chervoniak',
     toggleLangTip: 'Change language',
     toggleThemeTip: '☀️ Change theme 🌑',
+    city: 'Place',
+    country: 'Country',
+    autocomplete: 'Find location...',
+    weather: 'Weather',
+    cities: 'Cities',
+    temperature: 'Temperature',
+    loading: 'Loading...'
   },
   uk: {
     lang: 'Ukrainian',
@@ -18,6 +25,13 @@ const messages = {
     author: 'Вадим Червоняк',
     toggleLangTip: 'Змінити мову',
     toggleThemeTip: '☀️ Змінити тему 🌑',
+    city: 'Місце',
+    country: 'Країна',
+    autocomplete: 'Знайти місце...',
+    weather: 'Погода',
+    cities: 'Міста',
+    temperature: 'Температура',
+    loading: 'Завантаження...'
   },
 }
 
