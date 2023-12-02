@@ -1,45 +1,45 @@
 <template>
   <div>
-    <CityWeather
-      v-for="(cityWeather, index) in storedData"
-      :key="index"
-      :cityWeather="cityWeather"
-      :displayDays="1"
-      :index="index"
-    />
+    <div v-if="isLoaded === true">
+      <CityWeather
+        v-for="(cityWeather, index) in storedData"
+        :key="index"
+        :cityWeather="cityWeather"
+        :displayDays="1"
+        :index="index"
+      />
 
-    <autocomplete-input />
+      <autocomplete-input />
+    </div>
+    <div v-else>
+      {{ $t('loading') }}
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import i18n from '../i18n';
 import getIPInfo from '@/helpers/ipInfoHelper';
 import AutocompleteInput from '@/components/AutocompleteInput.vue';
 import translateToUkrainian from '@/helpers/translateHelper';
 import getWeather from '@/helpers/weatherHelper';
-import { extractCurrentCity, extractCity } from '@/helpers/extractCity';
+import { extractCurrentCity } from '@/helpers/extractCity';
 import CityWeather from '@/components/CityWeather.vue';
 
-const storedData = ref(JSON.parse(sessionStorage.getItem('home')) || [{ city: {}, weather: {} }]);
+const storedData = ref(JSON.parse(sessionStorage.getItem('home')));
+const isLoaded = ref()
 
 const setDefaultLanguageAndWeather = async () => {
+  isLoaded.value = false
   if (!sessionStorage.getItem('home')) {
-    try {
-      const ipInfo = await getIPInfo();
-      if (ipInfo) {
-        const currentCity = extractCurrentCity(ipInfo);
-        sessionStorage.setItem(
-          'home',
-          JSON.stringify([{ city: currentCity, weather: await getWeather(currentCity.latitude, currentCity.longitude) }])
-        );
-        i18n.global.messages['en'].cityNames = currentCity.name;
-        i18n.global.messages['uk'].cityNames = await translateToUkrainian(currentCity.name);
-      }
-    } catch (error) {
-      console.error('Error setting default language and weather:', error);
-    }
+    const ipInfo = await getIPInfo();
+    const currentCity = extractCurrentCity(ipInfo);
+    const weather = await getWeather(currentCity.latitude, currentCity.longitude);
+    sessionStorage.setItem('home', JSON.stringify([{ city: currentCity, weather }]));
+    i18n.global.messages['en'].cityNames = currentCity.name;
+    i18n.global.messages['uk'].cityNames = await translateToUkrainian(currentCity.name);
+    storedData.value = (JSON.parse(sessionStorage.getItem('home')));
   } else {
     const home = JSON.parse(sessionStorage.getItem('home'));
     const cityNamesEn = home.map(item => item.city.name).join('_');
@@ -47,12 +47,17 @@ const setDefaultLanguageAndWeather = async () => {
     const cityNamesUk = await Promise.all(cityNamesUkPromises);
     i18n.global.messages['en'].cityNames = cityNamesEn;
     i18n.global.messages['uk'].cityNames = cityNamesUk.join('_');
+    storedData.value = (JSON.parse(sessionStorage.getItem('home')));
   }
+
+  setTimeout(() => isLoaded.value = true, 0)
 };
 
 onMounted(() => {
   setDefaultLanguageAndWeather();
 });
+
+watch(JSON.parse(sessionStorage.getItem('home')), () => window.location.reload())
 </script>
 
 <style lang="scss">
