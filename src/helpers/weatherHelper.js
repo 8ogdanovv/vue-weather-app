@@ -1,7 +1,6 @@
 import axios from 'axios'
 
-const getWeather = async (location) => {
-  const {latitude, longitude} = location
+const getWeather = async (latitude, longitude) => {
   try {
     const response = await axios.get(
       `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&timezone=auto&current=temperature_2m&hourly=temperature_2m&daily=sunrise,sunset`

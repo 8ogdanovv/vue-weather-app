@@ -9,7 +9,7 @@
         v-for="(option, index) in sortedLanguageOptions"
         :key="index"
         @click="handleClick(option.value)"
-        :class="{ selected: selectedLanguage === option.value }"
+        :class="{ selected:  selectedLanguage === option.value }"
         class="select-option"
       >
         <img :src="option.image" :alt="$t('lang') + ' flag'" class="select-option-img" />
@@ -21,6 +21,7 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue'
 import i18n from '../i18n'
+import getIPInfo from '@/helpers/ipInfoHelper';
 
 const languageOptions = Object.keys(i18n.global.messages).map((locale) => ({
   value: locale,
@@ -32,14 +33,13 @@ const showOptions = ref(false)
 
 const sortedLanguageOptions = computed(() => {
   const sortedOptions = [...languageOptions]
-  sortedOptions.sort((o1, o2) => (selectedLanguage.value === o1.value ? -1 : 1))
+  sortedOptions.sort((o1, o2) => (i18n.global.locale === o1.value ? -1 : 1))
   return sortedOptions
 })
 
 const setLanguage = (lang) => {
-  selectedLanguage.value = lang
   i18n.global.locale = lang
-  localStorage.setItem('lang', selectedLanguage.value)
+  localStorage.setItem('lang', lang)
 }
 
 const handleClick = (lang) => {
@@ -52,20 +52,18 @@ const closeMenu = () => {
 }
 
 onMounted(async () => {
-  let savedLang = localStorage.getItem('lang')
+  let defaultLang = localStorage.getItem('lang')
 
-  if (!savedLang) {
-    // Use your IP location detection logic here
-    const response = await fetch('https://ipinfo.io')
-    const data = await response.json()
-    console.log(data)
-    savedLang = data.country === 'UA' ? 'uk' : 'en'
-
-    localStorage.setItem('lang', savedLang)
+  if (!localStorage.getItem('lang')) {
+    const ipInfo = await getIPInfo();
+    defaultLang = ipInfo.country.iso_code === 'UA' ? 'uk' : 'en'
+    i18n.global.locale = defaultLang;
+    localStorage.setItem('lang', defaultLang)
   }
 
-  i18n.global.locale = savedLang
+  i18n.global.locale = defaultLang
 })
+
 </script>
 
 <style lang="scss">
