@@ -1,8 +1,14 @@
 <template>
-  <div>
+  <div class="chart">
     <Line :data="data" :options="options" />
   </div>
 </template>
+
+<style lang="scss">
+.chart {
+  width: 100%;
+}
+</style>
 
 <script setup>
 import { ref, defineProps, computed } from 'vue'
@@ -40,7 +46,7 @@ const data = ref({
   datasets: [
     {
       label: hourlyLabel,
-      backgroundColor: '#f87979',
+      backgroundColor: '#ff00ff',
       data: temperatures
     }
   ]
@@ -48,6 +54,6 @@ const data = ref({
 
 const options = ref({
   responsive: true,
-  maintainAspectRatio: true
+  maintainAspectRatio: false
 })
 </script>

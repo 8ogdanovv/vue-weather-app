@@ -76,7 +76,11 @@ onMounted(async () => {
   left: 2rem;
   list-style: none;
   margin: 0;
+
   border-radius: 0.5rem;
+  background: var(--grey);
+  box-shadow: inset 0 0 0.5rem 0.25rem var(--shadow);
+
   padding: 0 0;
 
   position: absolute;
@@ -88,8 +92,6 @@ onMounted(async () => {
   width: 13rem;
   height: auto;
 
-  background: var(--grey);
-  box-shadow: inset 0 0 0.5rem 0.25rem var(--shadow);
 
   &-option {
     padding: 1rem 1rem;

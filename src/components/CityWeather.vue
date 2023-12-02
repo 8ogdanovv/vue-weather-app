@@ -1,11 +1,12 @@
 <template>
     <div class="card">
-      <p>{{ $t('city') }}: {{ $t('cityNames').split('_')[index] }}</p>
-      <p>{{ $t('temperature') }}:&nbsp;
-        <div class="city-weather">
+      <p>
+        {{ $t('city') }}: {{ $t('cityNames').split('_')[index] }} ||
+        {{ $t('temperature') }}:&nbsp;
+        <span class="city-weather">
           {{ cityWeather.weather.current.temperature_2m }}
           {{ cityWeather.weather.current_units.temperature_2m }}
-        </div>
+        </span>
       </p>
       <line-chart :weather="cityWeather.weather" :displayDays="displayDays"/>
     </div>
@@ -28,9 +29,13 @@ const toggleDisplay = () => {
 
 <style lang="scss">
 .card {
-  border: 1px solid #ccc;
   padding: 1rem;
   margin-top: 1rem;
+  width: 68dvw;
+
+  border-radius: 0.5rem;
+  background: linear-gradient(160deg, transparent, var(--grey), var(--background));
+  box-shadow: inset 0 0 0.5rem 0.25rem var(--shadow);
 }
 
 .city-weather {

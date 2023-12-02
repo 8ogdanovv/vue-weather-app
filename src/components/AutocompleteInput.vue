@@ -3,7 +3,7 @@
     <GoogleAutocomplete
       :api-key="API_KEY"
       @set="setCityToAdd"
-      :placeholder="$t('autocomplete')"
+      :placeholder="'🔍' + $t('autocomplete')"
     />
     <button class="add-city-button" @click="handleAddLocation">+</button>
   </div>
@@ -44,5 +44,32 @@ const handleAddLocation = async () => {
   display: block;
   height: 4rem !important;
   width: 100%;
+  position: relative;
+  padding: 0.25rem 0.5rem;
+  font-size: 2.5rem;
+
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.pac-target-input::placeholder {
+  position: absolute;
+  display: block;
+  top: 0.25rem;
+  left: 0.5rem;
+  font-size: 2.5rem;
+  width: 100%;
+}
+
+.add-city {
+  margin-top: 2rem;
+
+  &-button {
+    border: none;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    background: linear-gradient(160deg, transparent, var(--grey), var(--background));
+    box-shadow: inset 0 0 0.5rem 0.25rem var(--shadow);
+  }
 }
 </style>
