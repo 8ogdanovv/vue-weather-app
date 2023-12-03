@@ -11,7 +11,7 @@
 </style>
 
 <script setup>
-import { ref, defineProps, computed } from 'vue'
+import { ref, defineProps } from 'vue'
 import {
   Chart as ChartJS,
   CategoryScale,

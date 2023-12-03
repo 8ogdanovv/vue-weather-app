@@ -9,6 +9,3 @@ import HeaderView from '@/components/HeaderView.vue'
 import router from '@/router';
 import FooterView from '@/components/FooterView.vue'
 </script>
-
-<style>
-</style>

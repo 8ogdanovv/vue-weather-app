@@ -1,6 +1,6 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import Home from '@/views/Home.vue';
-import Favorites from '@/views/Favorites.vue';
+import { createRouter, createWebHistory } from 'vue-router'
+import Home from '@/views/Home.vue'
+import Favorites from '@/views/Favorites.vue'
 
 const routes = [
   {
@@ -13,22 +13,25 @@ const routes = [
     name: 'Favorites',
     component: Favorites,
   },
-];
+  {
+    path: '/:catchAll(.*)',
+    component: () => import('@/views/404.vue')
+  }
+]
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
-});
+})
 
-// Add a beforeEach guard to redirect to Home on initial load
-let isFirstLoad = true;
+let isFirstLoad = true
 router.beforeEach((to, from, next) => {
   if (isFirstLoad) {
-    isFirstLoad = false;
-    next({ name: 'Home' });
+    isFirstLoad = false
+    next({ name: 'Home' })
   } else {
-    next();
+    next()
   }
-});
+})
 
-export default router;
+export default router

@@ -5,12 +5,9 @@
 <script setup>
 import { ref, onMounted, watch } from 'vue'
 
-// Define a reactive variable for the theme
 const theme = ref('light')
-// Define a reactive variable for the themeIcon
 const themeIcon = ref('')
 
-// Function to toggle the theme
 const toggleTheme = () => {
   const newTheme = theme.value === 'light' ? 'dark' : 'light'
   themeIcon.value = newTheme === 'light' ? '🌚' : '🌞'
@@ -18,27 +15,20 @@ const toggleTheme = () => {
   localStorage.setItem('theme', newTheme)
 }
 
-// Watch for changes in the theme and update CSS custom properties accordingly
 watch(theme, (newTheme) => {
   document.documentElement.setAttribute('data-theme', newTheme)
 })
 
-// Use the onMounted hook to perform actions after the component is mounted
 onMounted(() => {
-  // Check if the user has a preferred color scheme
-  const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-  // Use the user's preference if available, otherwise, use the saved theme or default to light
-  const savedTheme = localStorage.getItem('theme') || (prefersDarkMode ? 'dark' : 'light');
-
-  theme.value = savedTheme;
-  document.documentElement.setAttribute('data-theme', savedTheme);
-  themeIcon.value = savedTheme === 'light' ? '🌚' : '🌞';
+  const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  const savedTheme = localStorage.getItem('theme') || (prefersDarkMode ? 'dark' : 'light')
+  theme.value = savedTheme
+  document.documentElement.setAttribute('data-theme', savedTheme)
+  themeIcon.value = savedTheme === 'light' ? '🌚' : '🌞'
 })
 </script>
 
 <style>
-/* Styles for dark mode */
 [data-theme="dark"] {
   --background: #000;
   --gray: #ccc;
@@ -47,7 +37,6 @@ onMounted(() => {
   --shadow: #fff4;
 }
 
-/* Styles for light mode */
 [data-theme="light"] {
   --background: #fff;
   --gray: #222;

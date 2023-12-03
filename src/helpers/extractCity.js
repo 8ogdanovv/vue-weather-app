@@ -1,4 +1,3 @@
-// Helper function to extract current city data
 function extractCurrentCity(source) {
   const { city, location } = source
   return {
@@ -8,7 +7,6 @@ function extractCurrentCity(source) {
   }
 }
 
-// Helper function to extract city data
 function extractCity(input) {
   const { name, latitude, longitude } = input
   return {

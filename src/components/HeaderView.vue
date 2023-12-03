@@ -1,7 +1,7 @@
 <template>
   <header class="header flex-center-between">
     <toggle-lang />
-    <section class="hello flex-center-center">
+    <section class="hello flex-center-start">
       <h1>{{ $t('hello') }}</h1>
       <p>{{ $t('welcome') }}</p>
     </section>
@@ -11,7 +11,7 @@
 
 <script setup>
 import ToggleLang from '@/components/ToggleLang.vue'
-import NavigationBar from './NavigationBar.vue';
+import NavigationBar from './NavigationBar.vue'
 </script>
 
 <style lang="scss">
@@ -29,6 +29,20 @@ import NavigationBar from './NavigationBar.vue';
 }
 
 .hello {
+  width: 100%;
+  position: absolute;
   gap: 1rem;
+}
+
+@media (orientation: landscape) {
+  .hello {
+    left: 27rem;
+  }
+}
+
+@media (orientation: portrait) {
+  .hello {
+    left: 20rem;
+  }
 }
 </style>

@@ -21,7 +21,7 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue'
 import i18n from '../i18n'
-import getIPInfo from '@/helpers/ipInfoHelper';
+import getIPInfo from '@/helpers/ipInfoHelper'
 
 const languageOptions = Object.keys(i18n.global.messages).map((locale) => ({
   value: locale,
@@ -63,7 +63,6 @@ onMounted(async () => {
 
   i18n.global.locale = defaultLang
 })
-
 </script>
 
 <style lang="scss">

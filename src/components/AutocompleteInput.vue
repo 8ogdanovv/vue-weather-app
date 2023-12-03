@@ -10,33 +10,28 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
-import { GoogleAutocomplete } from 'vue3-google-autocomplete';
-import { extractCity } from '@/helpers/extractCity';
-import getWeather from '@/helpers/weatherHelper';
+import { ref, computed } from 'vue'
+import { GoogleAutocomplete } from 'vue3-google-autocomplete'
+import { extractCity } from '@/helpers/extractCity'
+import getWeather from '@/helpers/weatherHelper'
 
-const API_KEY = computed(() => import.meta.env.VITE_GMAPS_API_KEY);
-const cityToAdd = ref();
+const API_KEY = computed(() => import.meta.env.VITE_GMAPS_API_KEY)
+const cityToAdd = ref()
 
 const setCityToAdd = (location) => {
-  console.log('Received payload:', location);
-
-  cityToAdd.value = extractCity(location);
-};
+  console.log('Received payload:', location)
+  cityToAdd.value = extractCity(location)
+}
 
 const handleAddLocation = async () => {
-  const weatherToAdd = await getWeather(cityToAdd.value.latitude, cityToAdd.value.longitude);
-
-  // Use spread operator to create a new array with the added item
+  const weatherToAdd = await getWeather(cityToAdd.value.latitude, cityToAdd.value.longitude)
   sessionStorage.setItem(
     'home',
     JSON.stringify([...JSON.parse(sessionStorage.getItem('home')), { city: cityToAdd.value, weather: weatherToAdd }])
-  );
-
-  // Clear the location after adding
+  )
   document.querySelector('.pac-target-input').value = ''
   window.location.reload()
-};
+}
 </script>
 
 <style lang="scss">
@@ -47,9 +42,10 @@ const handleAddLocation = async () => {
   position: relative;
   padding: 0.25rem 0.5rem;
   font-size: 2.5rem;
-
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
+  background-color: var(--background);
+  color: var(--color);
 }
 
 .pac-target-input::placeholder {
@@ -65,6 +61,9 @@ const handleAddLocation = async () => {
   margin-top: 2rem;
 
   &-button {
+    height: 4rem;
+    width: 4rem;
+    font-size: 3rem;
     border: none;
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;

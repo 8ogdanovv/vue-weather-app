@@ -7,6 +7,7 @@
         :cityWeather="cityWeather"
         :displayDays="1"
         :index="index"
+        :home="true"
       />
 
       <autocomplete-input />
@@ -18,64 +19,47 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue';
-import i18n from '../i18n';
-import getIPInfo from '@/helpers/ipInfoHelper';
-import AutocompleteInput from '@/components/AutocompleteInput.vue';
-import translateToUkrainian from '@/helpers/translateHelper';
-import getWeather from '@/helpers/weatherHelper';
-import { extractCurrentCity } from '@/helpers/extractCity';
-import CityWeather from '@/components/CityWeather.vue';
+import { ref, onMounted, watch } from 'vue'
+import i18n from '../i18n'
+import getIPInfo from '@/helpers/ipInfoHelper'
+import getWeather from '@/helpers/weatherHelper'
+import translateToUkrainian from '@/helpers/translateHelper'
+import { extractCurrentCity } from '@/helpers/extractCity'
+import CityWeather from '@/components/CityWeather.vue'
+import AutocompleteInput from '@/components/AutocompleteInput.vue'
 
-const storedData = ref(JSON.parse(sessionStorage.getItem('home')));
+const storedData = ref(JSON.parse(sessionStorage.getItem('home')))
 const isLoaded = ref()
 
 const setDefaultLanguageAndWeather = async () => {
   isLoaded.value = false
+
   if (!sessionStorage.getItem('home')) {
-    const ipInfo = await getIPInfo();
-    const currentCity = extractCurrentCity(ipInfo);
-    const weather = await getWeather(currentCity.latitude, currentCity.longitude);
-    sessionStorage.setItem('home', JSON.stringify([{ city: currentCity, weather }]));
-    i18n.global.messages['en'].cityNames = currentCity.name;
-    i18n.global.messages['uk'].cityNames = await translateToUkrainian(currentCity.name);
-    storedData.value = (JSON.parse(sessionStorage.getItem('home')));
+    const ipInfo = await getIPInfo()
+    const currentCity = extractCurrentCity(ipInfo)
+    const weather = await getWeather(currentCity.latitude, currentCity.longitude)
+    sessionStorage.setItem('home', JSON.stringify([{ city: currentCity, weather }]))
+    i18n.global.messages['en'].cityNames = currentCity.name
+    i18n.global.messages['uk'].cityNames = await translateToUkrainian(currentCity.name)
   } else {
-    const home = JSON.parse(sessionStorage.getItem('home'));
-    const cityNamesEn = home.map(item => item.city.name).join('_');
-    const cityNamesUkPromises = home.map(async (item) => await translateToUkrainian(item.city.name));
-    const cityNamesUk = await Promise.all(cityNamesUkPromises);
-    i18n.global.messages['en'].cityNames = cityNamesEn;
-    i18n.global.messages['uk'].cityNames = cityNamesUk.join('_');
-    storedData.value = (JSON.parse(sessionStorage.getItem('home')));
+    const home = JSON.parse(sessionStorage.getItem('home'))
+    const cityNamesEn = home.map(item => item.city.name).join('_')
+    const cityNamesUkPromises = home.map(async (item) => await translateToUkrainian(item.city.name))
+    const cityNamesUk = await Promise.all(cityNamesUkPromises)
+    i18n.global.messages['en'].cityNames = cityNamesEn
+    i18n.global.messages['uk'].cityNames = cityNamesUk.join('_')
   }
 
+  storedData.value = (JSON.parse(sessionStorage.getItem('home')))
   setTimeout(() => isLoaded.value = true, 0)
 };
 
 onMounted(() => {
-  setDefaultLanguageAndWeather();
-});
+  setDefaultLanguageAndWeather()
+})
 
 watch(JSON.parse(sessionStorage.getItem('home')), () => window.location.reload())
 </script>
 
 <style lang="scss">
-.card {
-  border: 1px solid #ccc;
-  padding: 1rem;
-  margin-top: 1rem;
-}
-
-.city-weather {
-  /* Add any styles for city weather display */
-}
-
-.add-city {
-  &-button {
-    height: 4rem;
-    width: 4rem;
-    font-size: 3rem;
-  }
-}
 </style>

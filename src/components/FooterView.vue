@@ -23,18 +23,12 @@
 import ToggleTheme from './ToggleTheme.vue'
 import { ref, computed, onMounted } from 'vue'
 
-// Define a reactive variable to track the current theme
 const isLightTheme = ref(true)
-
-// Get proper gray or white github logo depending on global color scheme
 const githubImg = computed(() => isLightTheme.value ? './gh.svg' : './gh-white.svg')
 
-// Use the onMounted hook to set the theme based on local storage
 onMounted(() => {
   const savedTheme = localStorage.getItem('theme')
-  if (savedTheme) {
-    isLightTheme.value = savedTheme === 'light'
-  }
+  if (savedTheme) isLightTheme.value = savedTheme === 'light'
 })
 </script>
 

@@ -15,7 +15,9 @@ const messages = {
     weather: 'Weather',
     cities: 'Cities',
     temperature: 'Temperature',
-    loading: 'Loading...'
+    loading: 'Loading...',
+    pinCityTip: 'Pin this city',
+    alreadyPinnedTip: 'Already pinned city',
   },
   uk: {
     lang: 'Ukrainian',
@@ -31,7 +33,9 @@ const messages = {
     weather: 'Погода',
     cities: 'Міста',
     temperature: 'Температура',
-    loading: 'Завантаження...'
+    loading: 'Завантаження...',
+    pinCityTip: 'До збережених',
+    alreadyPinnedTip: 'Наразі у збережених',
   },
 }
 
