@@ -84,6 +84,8 @@ const handlePinCity = () => {
 
   if (favorites.length === 5) {
     toggleShowMaxPinnedError()
+
+    return
   }
 
   if (!isCityInFavorites.value) {
@@ -106,7 +108,6 @@ const handleRemoveCity = () => {
   const cities = JSON.parse(sessionStorage.getItem('home')) || []
   const updatedCities = cities.filter((itemToDelete) => itemToDelete.city.name !== cityWeather.value.city.name)
   sessionStorage.setItem('home', JSON.stringify(updatedCities))
-  // toggleShowUnpinWarning()
   window.location.reload()
 };
 
