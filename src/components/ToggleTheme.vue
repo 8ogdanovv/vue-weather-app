@@ -32,17 +32,19 @@ onMounted(() => {
 [data-theme="dark"] {
   --background: #000;
   --gray: #ccc;
-  --grey: #8888;
+  --grey: #8884;
   --color: #fff;
   --shadow: #fff4;
+  transition: all 1s;
 }
 
 [data-theme="light"] {
   --background: #fff;
   --gray: #222;
-  --grey: #8886;
+  --grey: #8884;
   --color: #000;
   --shadow: #0004;
+  transition: all 1s;
 }
 
 .theme-toggler {

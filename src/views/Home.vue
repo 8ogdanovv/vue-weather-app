@@ -43,10 +43,10 @@ const setDefaultLanguageAndWeather = async () => {
     i18n.global.messages['uk'].cityNames = await translateToUkrainian(currentCity.name)
   } else {
     const home = JSON.parse(sessionStorage.getItem('home'))
-    const cityNamesEn = home.map(item => item.city.name).join('_')
+    const cityNamesEn = home.map(item => item.city.name)
     const cityNamesUkPromises = home.map(async (item) => await translateToUkrainian(item.city.name))
     const cityNamesUk = await Promise.all(cityNamesUkPromises)
-    i18n.global.messages['en'].cityNames = cityNamesEn
+    i18n.global.messages['en'].cityNames = cityNamesEn.join('_')
     i18n.global.messages['uk'].cityNames = cityNamesUk.join('_')
   }
 

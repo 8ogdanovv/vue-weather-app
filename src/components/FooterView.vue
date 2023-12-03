@@ -49,7 +49,7 @@ onMounted(() => {
   height: 6rem;
   padding: 1rem;
   will-change: filter;
-  transition: filter 300ms;
+  transition: filter 0.5s;
   position: relative;
   z-index: 5;
 }

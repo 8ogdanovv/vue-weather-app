@@ -1,13 +1,15 @@
 <template>
   <nav class="nav flex-center-center">
-    <router-link to="/" class="nav-link">{{$t('weather')}}📈</router-link>
-    <router-link to="/favorites" class="nav-link">{{$t('cities')}}📌</router-link>
+    <router-link to="/" class="nav-link">{{ $t('weather') }}📈</router-link>
+    <router-link to="/favorites" class="nav-link">{{ $t('cities') }}📌</router-link>
   </nav>
 </template>
 
 <style lang="scss">
 .nav {
   gap: 1rem;
+  position: relative;
+  z-index: 5;
 
   &-link {
     text-decoration: none;
@@ -15,7 +17,7 @@
     padding: 2rem;
     border-radius: 1rem;
     font-size: 2rem;
-    transition: all 0.5s;
+    transition: all 1s;
 
     &.router-link-active {
       font-weight: bold;
@@ -24,5 +26,4 @@
     }
   }
 }
-
 </style>
