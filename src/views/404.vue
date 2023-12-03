@@ -1,13 +1,96 @@
 <template>
-  <div>
-    404
+  <div class="not-found">
+    <h1>No such a route found...</h1>
+
+    <router-link to="/" class="link">
+      Back to home
+      <br />
+      <br />
+      <span id="this">.this</span></router-link>
   </div>
 </template>
 
-<script setup>
+<style scoped>
+.not-found {
+  display: flex;
+  flex-direction: column;
+  height: calc(100dvh - 8.62rem);
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
 
-</script>
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: var(--background, --color);
+  background-color: var(--color, --background);
+  text-decoration: underline dotted var(--grey);
+}
+.link {
+  text-decoration: none;
+  font-size: 200%;
+}
 
-<style lang="scss">
+h1 {
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+#this {
+  font-size: 11rem;
+  line-height: 11rem;
+  font-weight: bolder;
+  background: -webkit-linear-gradient(270deg, navy 30%, gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  filter: blur(1px);
+  opacity: 0.68;
+  left: -6rem;
+}
+
+#this::before{
+  position: absolute;
+  bottom: 1.5rem;
+  left: -1.5rem;
+  content: '.this';
+  font-size: 10rem;
+  line-height: 11.5rem;
+  background: -webkit-linear-gradient(270deg, navy 30%, gold);
+  background: -webkit-linear-gradient(270deg, #00008088 30%, #ffd70088);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  text-align: center;
+  z-index: -1;
+  filter: blur(5px);
+}
+
+#this::after {
+  position: absolute;
+  top: -1rem;
+  left: 1.5rem;
+  content: '.this';
+  font-size: 15rem;
+  line-height: 15rem;
+  background: -webkit-linear-gradient(270deg, #000080 30%, #ffd700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  text-align: center;
+  z-index: 1;
+  filter: contrast(2);
+}
 </style>

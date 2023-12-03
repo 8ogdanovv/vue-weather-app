@@ -14,8 +14,8 @@ const routes = [
     component: Favorites,
   },
   {
-    path: '/*',
-    component: () => import('@/views/404.vue')
+    path: '/:catchAll(.*)',
+    component: () => import('./views/404.vue')
   }
 ]
 
@@ -24,14 +24,14 @@ const router = createRouter({
   routes,
 })
 
-// let isFirstLoad = true
-// router.beforeEach((to, from, next) => {
-//   if (isFirstLoad) {
-//     isFirstLoad = false
-//     next({ name: 'Home' })
-//   } else {
-//     next()
-//   }
-// })
+let isFirstLoad = !history.length
+router.beforeEach((to, from, next) => {
+  if (isFirstLoad) {
+    isFirstLoad = false
+    next({ name: 'Home' })
+  } else {
+    next()
+  }
+})
 
 export default router

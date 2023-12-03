@@ -63,10 +63,10 @@ import LineChart from './LineChart.vue';
 import router from '@/router'
 import WarningError from './WarningError.vue'
 
-const props = defineProps(['cityWeather', 'displayDays', 'index', 'home']);
-const index = ref(props.index);
-const cityWeather = ref(props.cityWeather);
-const displayDays = ref(props.displayDays || 1);
+const props = defineProps(['cityWeather', 'displayDays', 'index', 'home'])
+const index = ref(props.index)
+const cityWeather = ref(props.cityWeather)
+const displayDays = ref(props.displayDays || 1)
 
 const showUnpinWarning = ref(false)
 const toggleShowUnpinWarning = () => showUnpinWarning.value = !showUnpinWarning.value
@@ -77,7 +77,7 @@ const maxPinnedErrorMessage = "You have reached the maximum number of pinned cit
 
 const isCityInFavorites = ref(
   JSON.parse(localStorage.getItem('favorites'))?.some((fav) => fav.city.name === cityWeather.value.city.name) || false
-);
+)
 
 const handlePinCity = () => {
   const favorites = JSON.parse(localStorage.getItem('favorites')) || []
@@ -102,16 +102,16 @@ const handleUnpinCity = () => {
   isCityInFavorites.value = false
   toggleShowUnpinWarning()
   window.location.reload()
-};
+}
 
 const handleRemoveCity = () => {
   const cities = JSON.parse(sessionStorage.getItem('home')) || []
   const updatedCities = cities.filter((itemToDelete) => itemToDelete.city.name !== cityWeather.value.city.name)
   sessionStorage.setItem('home', JSON.stringify(updatedCities))
   window.location.reload()
-};
+}
 
-watch(JSON.parse(localStorage.getItem('favorites')), () => window.location.reload());
+watch(JSON.parse(localStorage.getItem('favorites')), () => window.location.reload())
 </script>
 
 <style lang="scss">

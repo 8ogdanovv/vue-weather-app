@@ -23,9 +23,9 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps } from 'vue'
 
-const props = defineProps(['type', 'message', 'handler', 'state', 'closer', 'suggestRedirect']);
+const props = defineProps(['type', 'message', 'handler', 'state', 'closer', 'suggestRedirect'])
 
 const handleUnpin = () => {
   props.handler()

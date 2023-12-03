@@ -44,7 +44,6 @@ onMounted(() => {
   padding: 0 2rem;
 }
 
-/* Styles for the logos */
 .logo {
   height: 6rem;
   padding: 1rem;
@@ -54,19 +53,16 @@ onMounted(() => {
   z-index: 5;
 }
 
-/* Hover effect for Vite logo */
 .logo.vite:hover {
   filter: drop-shadow(0 0 2em #646cffcc);
 }
 
-/* Hover effect for Vue logo */
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883cc);
 }
 
-/* Hover effect for GitHub logo */
 .logo.git:hover {
-  filter: drop-shadow(0 0 2em #888888cc); /* Adjust color as needed */
+  filter: drop-shadow(0 0 2em #888888cc);
 }
 
 .authority {
@@ -90,5 +86,4 @@ onMounted(() => {
 .abc {
   text-align: left;
 }
-
 </style>
