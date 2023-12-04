@@ -13,12 +13,6 @@
   font-size: 1vmax;
 }
 
-@media (min-width: 768px) {
-  :root {
-    font-size: 1.25vmin;
-  }
-}
-
 * {
   box-sizing: border-box;
 }
@@ -32,7 +26,13 @@ body {
   min-height: 100vh;
   overflow: hidden;
 
-  font-size: 150%;
+  font-size: 125%;
+  line-height: 100%;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  padding: 0;
 }
 
 @media (orientation: portrait) and (max-width: 768px) {
@@ -45,7 +45,7 @@ body {
 .content {
   position: absolute;
   left: 0;
-  top: 9rem;
+  top: 6dvh;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -53,26 +53,38 @@ body {
   justify-content: center;
 }
 
+.content-wrapper {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100dvw;
+  height: 100dvh;
+}
+
 @media (orientation: landscape) {
   .content {
-    width: 95dvw;
-    height: 62rem;
+    width: 90dvw;
+    height: 75dvh;
     padding: 0;
+    top: 12.5dvh;
   }
 
   .content > * {
-    height: 20rem;
+    height: 24dvh;
+    margin: 0.5vmin;
   }
 }
 
 @media (orientation: portrait) {
   .content {
     width: 85dvw;
-    height: 107rem;
+    height: 88dvh;
+
+    flex-direction: column;
   }
 
-  .content > * {
-    height: 17.9rem;
+  .content > *:not(.add-city) {
+    height: 14dvh;
   }
 }
 

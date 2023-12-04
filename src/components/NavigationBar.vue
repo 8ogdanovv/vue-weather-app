@@ -14,7 +14,6 @@
   &-link {
     text-decoration: none;
     color: var(--color);
-    padding: 2rem;
     border-radius: 1rem;
     font-size: 2rem;
     transition: all 1s;
@@ -24,6 +23,24 @@
       background: var(--grey);
       box-shadow: inset 0 0 0.5rem 0.25rem var(--shadow);
     }
+  }
+}
+
+@media (max-width: 1200px) {
+  .nav {
+    transform: scale(0.75);
+  }
+}
+
+@media (orientation: landscape) {
+  .nav-link {
+    padding: 1.5rem;
+  }
+}
+
+@media (orientation: portrait) {
+  .nav-link {
+    padding: 2rem;
   }
 }
 </style>

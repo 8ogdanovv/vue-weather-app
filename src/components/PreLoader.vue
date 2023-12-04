@@ -1,0 +1,277 @@
+<template>
+  <div class="preloader">
+    <div class="circles">
+      <div class="circle cayan"></div>
+      <div class="circle magenta"></div>
+      <div class="circle yellow"></div>
+    </div>
+    <div class="text">
+      <h3 class="loading loading0">{{ $t('loading') }}</h3>
+    </div>
+  </div>
+</template>
+
+<style lang="scss">
+.preloader {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100dvw;
+  height: 100dvh;
+  z-index: 15;
+
+  .circles,
+  .text {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .text {
+    font-size: 3rem;
+    text-align: left;
+    color: var(--background);
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 2s;
+    overflow: hidden;
+  }
+
+  .loading {
+    position: relative;
+    background: var(--color);
+    color: var(--background);
+    padding-right: 4rem;
+    margin-left: 4rem;
+    display: inline-block;
+  }
+
+  .text::before {
+    content: '';
+    transform-origin: 0 0;
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    transform: scale(5);
+    background: linear-gradient(0deg, cyan, magenta, yellow);
+    animation: 6s rotate infinite cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  }
+
+  .loading::after {
+    position: absolute;
+    content: '';
+    animation: 2s blink infinite;
+    background: var(--color);
+    color: var(--background);
+    text-align: right;
+  }
+
+  .circles {
+    transform: translate(-50%, -50%);
+    transform-origin: 0 0;
+    animation: rotate 3s infinite cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+
+      &.cayan {
+        background: #00ffff88;
+        top: 0;
+        left: 0;
+        animation: inOut1 1.5s infinite cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+      &.magenta {
+        background: #ff00ff88;
+        top: 0;
+        left: 0;
+        animation: inOut2 3s infinite cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+      &.yellow {
+        background: #ffff0088;
+        top: 0;
+        left: 0;
+        animation: inOut3 4.5s infinite cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+    }
+  }
+}
+
+@media (orientation: landscape) {
+  .circles {
+    top: 31%;
+    width: 5rem;
+    height: 5rem;
+
+    .circle {
+      width: 5rem;
+      height: 5rem;
+    }
+  }
+
+  .text {
+    top: 54%;
+    width: 16rem;
+    height: 16rem;
+  }
+
+  .loading {
+    position: relative;
+    left: -2rem;
+    font-size: 2rem;
+    line-height: 3.5rem;
+    width: 14rem;
+  }
+
+  .loading::after {
+    left: 8.5rem;
+    width: 3.5rem;
+  }
+
+}
+
+@media (orientation: portrait) {
+  .circles {
+    top: 35%;
+    width: 10rem;
+    height: 10rem;
+
+    .circle {
+      width: 10rem;
+      height: 10rem;
+    }
+
+  }
+
+  .text {
+    top: 55%;
+    width: 25rem;
+    height: 25rem;
+  }
+
+  .loading {
+    position: relative;
+    left: -2rem;
+    font-size: 3rem;
+    line-height: 4rem;
+    width: 18rem;
+  }
+
+  .loading::after {
+    left: 13rem;
+    width: 5rem;
+  }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0) translate(-50%, -50%); }
+  to { transform: rotate(1turn) translate(-50%, -50%); }
+}
+
+@keyframes inOut1 {
+  0% {}
+  50% { transform: translate(0, -100%);}
+  100% {}
+}
+
+@keyframes inOut2 {
+  0% {}
+  50% { transform: translate(-86.60254037844386%, 50%);}
+  100% {}
+}
+
+@keyframes inOut3 {
+  0% {}
+  50% { transform: translate(86.60254037844386%, 50%);}
+  100% {}
+}
+
+@keyframes blink {
+  0% {
+    content: '...'
+  }
+  25% {
+    content: '..|'
+  }
+  50% {
+    content: '.||'
+  }
+  75% {
+    content: '|||'
+  }
+  100% {
+    content: ''
+  }
+}
+
+@keyframes waving {
+  0% {
+    background: linear-gradient(0deg, cyan, magenta, yellow);
+  }
+  5% {
+    background: linear-gradient(18deg, cyan, magenta, yellow);
+  }
+  10% {
+    background: linear-gradient(36deg, cyan, magenta, yellow);
+  }
+  15% {
+    background: linear-gradient(54deg, cyan, magenta, yellow);
+  }
+  20% {
+    background: linear-gradient(72deg, cyan, magenta, yellow);
+  }
+  25% {
+    background: linear-gradient(90deg, cyan, magenta, yellow);
+  }
+  30% {
+    background: linear-gradient(108deg, cyan, magenta, yellow);
+  }
+  35% {
+    background: linear-gradient(126deg, cyan, magenta, yellow);
+  }
+  40% {
+    background: linear-gradient(134deg, cyan, magenta, yellow);
+  }
+  45% {
+    background: linear-gradient(162deg, cyan, magenta, yellow);
+  }
+  50% {
+    background: linear-gradient(180deg, cyan, magenta, yellow);
+  }
+  55% {
+    background: linear-gradient(198deg, cyan, magenta, yellow);
+  }
+  60% {
+    background: linear-gradient(216deg, cyan, magenta, yellow);
+  }
+  65% {
+    background: linear-gradient(234deg, cyan, magenta, yellow);
+  }
+  70% {
+    background: linear-gradient(252deg, cyan, magenta, yellow);
+  }
+  75% {
+    background: linear-gradient(270deg, cyan, magenta, yellow);
+  }
+  80% {
+    background: linear-gradient(288deg, cyan, magenta, yellow);
+  }
+  85% {
+    background: linear-gradient(306deg, cyan, magenta, yellow);
+  }
+  90% {
+    background: linear-gradient(324deg, cyan, magenta, yellow);
+  }
+  95% {
+    background: linear-gradient(342deg, cyan, magenta, yellow);
+  }
+  100% {
+    background: linear-gradient(360deg, cyan, magenta, yellow);
+  }
+}
+</style>

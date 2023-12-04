@@ -1,14 +1,6 @@
 <template>
   <div class="city-weather">
-    <div class="head flex-center-between">
-      <h3 class="head-title">
-        <span class="place-label">{{ $t('city') }}:</span>
-        {{ props.home ? $t('cityNames').split('_')[index] :
-        $t('cityNamesPinned').split('_')[index] }} |
-        <span class="temperature-label">{{ $t('temperature') }}:</span>
-        {{ currentTemperature }}{{ cityWeather.weather.current_units.temperature_2m }}
-      </h3>
-      <div v-if="props.home" class="controls flex-center-end">
+    <div v-if="props.home" class="controls">
         <button
           class="city-weather-remove-city"
           :title="$t('removeCityTip')"
@@ -35,8 +27,16 @@
           <span class="unpin">📌</span>
         </button>
       </div>
-    </div>
+
     <line-chart :weather="cityWeather.weather" :displayDays="displayDays" />
+
+    <h3 class="head-title">
+      <span class="place-label">{{ $t('city') }}:</span>
+      {{ props.home ? $t('cityNames').split('_')[index] :
+      $t('cityNamesPinned').split('_')[index] }} |
+      <span class="temperature-label">{{ $t('temperature') }}:</span>
+      {{ currentTemperature }}{{ cityWeather.weather.current_units.temperature_2m }}
+    </h3>
 
     <warning-error
       v-if="showUnpinWarning"
@@ -168,17 +168,39 @@ watch(JSON.parse(localStorage.getItem('favorites')), () => window.location.reloa
 
 .city-weather {
   margin: 0.5rem;
-  padding: 0 1rem 1rem;
   width: 68dvw;
   position: relative;
+  z-index: 0;
 
   border-radius: 0.5rem;
   background: linear-gradient(160deg, transparent, var(--grey), var(--background));
   box-shadow: inset 0 0 0.5rem 0.25rem var(--shadow);
 
-  .controls {
-    gap: 0.5rem;
+  & > div {
+    position: absolute;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    height: auto;
+    align-items: flex-end;
+    justify-content: flex-end;
+    z-index: 1;
+
+    .controls {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      right: 0 !important;
+      gap: 0.5rem;
+      z-index: 555;
+
+      button {
+        position: absolute;
+        right: 0;
+      }
+    }
   }
+
 
   &-pin-city.disabled {
     cursor: default;
@@ -230,11 +252,25 @@ watch(JSON.parse(localStorage.getItem('favorites')), () => window.location.reloa
   .city-weather {
     width: 42dvw;
   }
+
+  .chart {
+    position: relative;
+    z-index: 0;
+    transform-origin: 50% 0;
+    transform: scale(0.9, 0.85);
+  }
 }
 
 @media (orientation: portrait) {
   .city-weather {
     width: 75dvw;
+  }
+
+  .chart {
+    position: relative;
+    z-index: 0;
+    transform-origin: 50% 0;
+    transform: scale(0.9, 0.85);
   }
 }
 
@@ -245,11 +281,18 @@ watch(JSON.parse(localStorage.getItem('favorites')), () => window.location.reloa
 }
 
 .head-title {
-  text-align: left;
+  width: 100%;
+  text-align: center;
   letter-spacing: -0.05ch;
-  height: 2.25rem;
+  height: 2rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  padding: 0;
+  margin: 0;
 }
 </style>

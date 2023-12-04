@@ -75,29 +75,17 @@ onMounted(async () => {
   left: 3rem;
   list-style: none;
   margin: 0;
-
   border-radius: 0.5rem;
   background: var(--grey);
   box-shadow: inset 0 0 0.5rem 0.25rem var(--shadow);
-
-  padding: 0.5rem 0;
-
   position: absolute;
   display: flex;
-
   flex-direction: column;
   overflow: hidden;
-
-  width: 10rem;
   height: auto;
 
-
   &-option {
-    padding: 0.5rem 1rem;
-
     &-img {
-      width: 8rem;
-      height: 4.8rem;
       box-shadow: 0 0 0.5rem 0.25rem var(--shadow);
       border-radius: 0.5rem;
     }
@@ -107,12 +95,7 @@ onMounted(async () => {
 }
 
 .close {
-  height: 7rem;
   z-index: 5;
-}
-
-.open {
-  height: 13rem;
 }
 
 .selected {
@@ -121,5 +104,53 @@ onMounted(async () => {
 
 .open {
   display: flex;
+}
+
+@media (orientation: landscape) {
+  .select {
+    padding: 0;
+    width: 7rem;
+
+    &-option {
+      padding: 0.625rem 1rem;
+
+      &-img {
+        width: 5rem;
+        height: 3rem;
+      }
+    }
+  }
+
+  .close {
+    height: 4.25rem;
+  }
+
+  .open {
+    height: 8.5rem;
+  }
+}
+
+@media (orientation: portrait) {
+  .select {
+    padding: 0;
+    width: 10rem;
+
+    &-option {
+      padding: 1rem 1rem 0.5rem;
+
+      &-img {
+        width: 8rem;
+        height: 4.8rem;
+      }
+    }
+  }
+
+  .close {
+    height: 7rem;
+  }
+
+  .open {
+    height: 13rem;
+  }
 }
 </style>

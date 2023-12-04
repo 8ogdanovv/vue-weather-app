@@ -144,7 +144,7 @@ const handleAddLocation = async () => {
   .add-city {
     margin: 0.5rem;
     width: 75dvw;
-    height: 12.5rem;
+    height: 5rem;
   }
 }
 </style>

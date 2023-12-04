@@ -1,5 +1,4 @@
 <template>
-  <div>
     <div v-if="isLoaded === true" >
       <div v-if="favorites.length" class="content favorites">
         <CityWeather
@@ -17,15 +16,15 @@
 
       <days-to-display :less="1" :more="7" storageKey="favsDays"/>
     </div>
-    <div v-else>
-      {{ $t('loading') }}
+    <div v-else class="wrapper">
+      <pre-loader />
     </div>
-  </div>
 </template>
 
 <script setup>
 import { ref, onMounted, watch } from 'vue'
 import i18n from '@/i18n'
+import PreLoader from '@/components/PreLoader.vue'
 import CityWeather from '@/components/CityWeather.vue'
 import DaysToDisplay from '@/components/DaysToDisplay.vue'
 import getWeather from '@/helpers/weatherHelper'

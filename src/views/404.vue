@@ -6,17 +6,19 @@
       Back to home
       <br />
       <br />
-      <span id="this">.this</span></router-link>
+      <span id="this">this.</span>
+    </router-link>
   </div>
 </template>
 
 <style scoped>
 .not-found {
+  padding-top: 10rem;
   display: flex;
   flex-direction: column;
   height: calc(100dvh - 8.62rem);
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   position: relative;
 }
 
@@ -54,14 +56,15 @@ h1 {
   position: relative;
   filter: blur(1px);
   opacity: 0.68;
-  left: -6rem;
+  left: 0;
+  bottom: -0.65rem;
 }
 
 #this::before{
   position: absolute;
-  bottom: 1.5rem;
-  left: -1.5rem;
-  content: '.this';
+  bottom: 5rem;
+  left: 0.25rem;
+  content: 'this.';
   font-size: 10rem;
   line-height: 11.5rem;
   background: -webkit-linear-gradient(270deg, navy 30%, gold);
@@ -78,11 +81,11 @@ h1 {
 
 #this::after {
   position: absolute;
-  top: -1rem;
-  left: 1.5rem;
-  content: '.this';
-  font-size: 15rem;
-  line-height: 15rem;
+  top: 6rem;
+  left: -0.25rem;
+  content: 'this.';
+  font-size: 12.5rem;
+  line-height: 12.5rem;
   background: -webkit-linear-gradient(270deg, #000080 30%, #ffd700);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

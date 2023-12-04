@@ -1,14 +1,6 @@
 <template>
-  <div class="chart">
-    <Line :data="data" :options="options" />
-  </div>
+    <Line :data="data" :options="options" class="chart" />
 </template>
-
-<style lang="scss">
-.chart {
-  width: 100%;
-}
-</style>
 
 <script setup>
 import { ref, defineProps } from 'vue'
@@ -47,7 +39,7 @@ const mainLabel = +displayDays === 1
 const times = weather.hourly.time
 
 const hours = times.slice(0, 24).map(h => h.slice(-5))
-const days7 = Array.from(new Set(times.map(h => h.slice(0, 10))))
+const days7 = Array.from(new Set(times.map(h => h.slice(5, 10))))
 const days5 = days7.slice(0, 5)
 const labelsToDisplay = +displayDays === 1 ? hours : +displayDays === 5 ? days5 : days7
 

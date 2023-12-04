@@ -45,8 +45,6 @@ onMounted(() => {
 }
 
 .logo {
-  height: 6rem;
-  padding: 1rem;
   will-change: filter;
   transition: filter 0.5s;
   position: relative;
@@ -69,8 +67,34 @@ onMounted(() => {
   color: var(--gray);
   display: flex;
   position: absolute;
-  width: 60dvw;
-  left: 20dvw;
+}
+
+@media (orientation: landscape) {
+  .authority {
+    width: 68dvw;
+    left: 16.5dvw;
+  }
+
+  .footer {
+    height: 11dvh;
+  }
+
+  .logo {
+    height: 8dvh;
+    padding: 1dvh;
+  }
+}
+
+@media (orientation: portrait) {
+  .authority {
+    width: 68dvw;
+    left: 23dvw;
+  }
+
+  .logo {
+    height: 6rem;
+    padding: 1rem;
+  }
 }
 
 .name {

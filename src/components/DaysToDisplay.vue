@@ -41,6 +41,7 @@ watch(days, (newValue) => {
   position: absolute;
   display: flex;
   flex-direction: column;
+  width: 16dvw;
 
   button {
     border: none;
@@ -75,15 +76,18 @@ watch(days, (newValue) => {
 
 @media (orientation: landscape) {
   .days-to-display {
-    top: 45.5%;
-    right: 5rem;
+    top: 45%;
+    right: 1dvw;
+    font-size: 50%;
+    width: 10dvw;
   }
 }
 
 @media (orientation: portrait) {
   .days-to-display {
     top: 46.75%;
-    right: 3rem;
+    right: 1rem;
+    width: 16dvw;
   }
 }
 </style>

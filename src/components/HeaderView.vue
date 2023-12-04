@@ -30,20 +30,29 @@ import NavigationBar from './NavigationBar.vue'
 }
 
 .hello {
-  width: 100%;
+  width: 33dvw;
+  top: 2dvh;
   position: absolute;
   gap: 1rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 @media (orientation: landscape) {
   .hello {
-    left: 27rem;
+    left: 20dvw;
+  }
+
+  .header {
+    height: 11dvh;
   }
 }
 
 @media (orientation: portrait) {
   .hello {
-    left: 20rem;
+    left: 23dvw;
+    flex-direction: column;
   }
 }
 </style>

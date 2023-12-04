@@ -1,7 +1,6 @@
 <template>
-  <div>
-    <div v-if="isLoaded === true">
-      <div class="content cities">
+  <div v-if="isLoaded === true" class="content-wrapper">
+    <div  class="content cities">
         <CityWeather
           v-for="(cityWeather, index) in storedData"
           :key="index"
@@ -12,19 +11,20 @@
         />
 
         <autocomplete-input />
-      </div>
 
-      <days-to-display :less="1" :more="5" storageKey="homeDays"/>
     </div>
-    <div v-else>
-      {{ $t('loading') }}
-    </div>
+
+    <days-to-display :less="1" :more="5" storageKey="homeDays"/>
+  </div>
+  <div v-else class="wrapper">
+    <pre-loader />
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, watch } from 'vue'
 import i18n from '@/i18n'
+import PreLoader from '@/components/PreLoader.vue'
 import CityWeather from '@/components/CityWeather.vue'
 import AutocompleteInput from '@/components/AutocompleteInput.vue'
 import DaysToDisplay from '@/components/DaysToDisplay.vue'
