@@ -4,7 +4,7 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  const base = mode === 'production' ? /vue-weather-app/ : '/'
+  const base = mode === 'production' ? '/vue-weather-app/' : '/'
 
   return {
     plugins: [

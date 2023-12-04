@@ -1,6 +1,7 @@
 {
   "name": "vue-weather-app",
   "private": true,
+  "home": "https://vadym4che.github.io/vue-weather-app/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
