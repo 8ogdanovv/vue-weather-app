@@ -43,7 +43,6 @@
     position: relative;
     background: var(--color);
     color: var(--background);
-    padding-right: 4rem;
     margin-left: 4rem;
     display: inline-block;
   }
@@ -64,7 +63,7 @@
 
   .loading::after {
     position: absolute;
-    content: '';
+    content: ' ';
     animation: 2s blink infinite;
     background: var(--color);
     color: var(--background);
@@ -104,7 +103,7 @@
 
 @media (orientation: landscape) {
   .circles {
-    top: 31%;
+    top: 29%;
     width: 5rem;
     height: 5rem;
 
@@ -115,22 +114,24 @@
   }
 
   .text {
-    top: 54%;
-    width: 16rem;
-    height: 16rem;
+    top: 56%;
+    width: 20rem;
+    height: 20rem;
   }
 
   .loading {
     position: relative;
-    left: -2rem;
-    font-size: 2rem;
-    line-height: 3.5rem;
-    width: 14rem;
+    left: -3rem;
+    font-size: 1.5rem;
+    line-height: 3rem;
+    padding-right: 0;
+    text-align: left;
   }
 
   .loading::after {
-    left: 8.5rem;
-    width: 3.5rem;
+    right: -3rem;
+    z-index: 1;
+    width: 3rem;
   }
 
 }
@@ -160,6 +161,7 @@
     font-size: 3rem;
     line-height: 4rem;
     width: 18rem;
+    padding-right: 4rem;
   }
 
   .loading::after {
@@ -205,7 +207,7 @@
     content: '|||'
   }
   100% {
-    content: ''
+    content: ' '
   }
 }
 

@@ -101,6 +101,10 @@ button {
   cursor: pointer;
 }
 
+button::hover > * {
+  background: #000 !important;
+}
+
 .flex-center-between {
   display: flex;
   align-items: center;

@@ -13,7 +13,7 @@
 
 <style scoped>
 .not-found {
-  padding-top: 10rem;
+  padding-top: 7dvh;
   display: flex;
   flex-direction: column;
   height: calc(100dvh - 8.62rem);

@@ -76,7 +76,7 @@ watch(days, (newValue) => {
 
 @media (orientation: landscape) {
   .days-to-display {
-    top: 45%;
+    top: 41.5%;
     right: 1dvw;
     font-size: 50%;
     width: 10dvw;
