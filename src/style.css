@@ -42,9 +42,46 @@ body {
   }
 }
 
+.content {
+  position: absolute;
+  left: 0;
+  top: 9rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (orientation: landscape) {
+  .content {
+    width: 95dvw;
+    height: 62rem;
+    padding: 0;
+  }
+
+  .content > * {
+    height: 20rem;
+  }
+}
+
+@media (orientation: portrait) {
+  .content {
+    width: 85dvw;
+    height: 107rem;
+  }
+
+  .content > * {
+    height: 17.9rem;
+  }
+}
+
+.content > div:last-of-type {
+  margin: inherit auto;
+}
+
 #app {
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 

@@ -5,8 +5,9 @@
     <div class="warning-error" v-show="props.state">
       <div v-if="props.type === 'warning'">
         {{ props.message }}
-        <button @click="handleUnpin">Yes</button>
-        <button @click="handleClose">No</button>
+        <br />
+        <button @click="handleUnpin">{{ $t('yes')}}</button>
+        <button @click="handleClose">{{ $t('no')}}</button>
       </div>
       <div v-else-if="props.type === 'error'">
         {{ props.message }}
@@ -15,8 +16,8 @@
           <router-link  to='/favorites'>./favorites</router-link>
           for managing pinned!
         </p>
-        <br v-else />
-        <button @click="handleClose">Ok</button>
+        <br v-else >
+        <button @click="handleClose">{{ $t('ok')}}</button>
       </div>
     </div>
   </div>
@@ -70,8 +71,9 @@ const handleClose = () => {
   text-align: center;
 
   button {
-    margin-top: 1rem;
+    margin: 1rem .5rem 0;
     padding: 1rem;
+    width: 5rem;
     font-size: 1.75rem;
     border: none;
     border-radius: 0.5rem;

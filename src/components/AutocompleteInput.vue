@@ -27,19 +27,20 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { GoogleAutocomplete } from 'vue3-google-autocomplete'
+import WarningError from './WarningError.vue'
 import { extractCity } from '@/helpers/extractCity'
 import getWeather from '@/helpers/weatherHelper'
-import WarningError from './WarningError.vue'
+import getLocal from '@/helpers/getLocal'
 
 const API_KEY = computed(() => import.meta.env.VITE_GMAPS_API_KEY)
 const cityToAdd = ref()
 
 const showMaxListedError = ref(false)
 const toggleShowMaxListedError = () => showMaxListedError.value = !showMaxListedError.value
-const maxListedErrorMessage = "You have reached the maximum number of listed cities (5)."
+const maxListedErrorMessage = getLocal('maxListedErr')
 const showAlreadyInListError = ref(false)
 const toggleShowAlreadyInListError = () => showAlreadyInListError.value = !showAlreadyInListError.value
-const alreadyInListErrorMessage = "You have already added this city to list."
+const alreadyInListErrorMessage = getLocal('inListErr')
 
 const setCityToAdd = (location) => {
   console.log('Received payload:', location)
@@ -87,6 +88,9 @@ const handleAddLocation = async () => {
   border-bottom-left-radius: 0.5rem;
   background-color: var(--background);
   color: var(--color);
+  border: none;
+  box-shadow: inset 0 0 0.5rem 0.25rem var(--shadow);
+  background-color: var(--grey);
 }
 
 .pac-target-input::placeholder {
@@ -99,9 +103,19 @@ const handleAddLocation = async () => {
   width: 100%;
 }
 
+.pac-target-input:focus {
+  border: none;
+  outline: none;
+  background-color: var(--background);
+}
+
 .add-city {
   margin-top: 2rem;
   position: relative;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background: linear-gradient(160deg, transparent, var(--grey), var(--background));
+  box-shadow: inset 0 0 0.5rem 0.25rem var(--shadow);
 
   &-button {
     height: 4rem;
@@ -112,6 +126,25 @@ const handleAddLocation = async () => {
     border-bottom-right-radius: 0.5rem;
     background: linear-gradient(160deg, transparent, var(--grey), var(--background));
     box-shadow: inset 0 0 0.5rem 0.25rem var(--shadow);
+    color: var(--gray);
+  }
+}
+
+
+@media (orientation: landscape) {
+  .add-city {
+    margin: 0.5rem;
+    position: relative;
+    width: 42dvw;
+    height: 19.5rem;
+  }
+}
+
+@media (orientation: portrait) {
+  .add-city {
+    margin: 0.5rem;
+    width: 75dvw;
+    height: 12.5rem;
   }
 }
 </style>

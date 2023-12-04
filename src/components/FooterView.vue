@@ -20,8 +20,8 @@
 </template>
 
 <script setup>
-import ToggleTheme from './ToggleTheme.vue'
 import { ref, computed, onMounted } from 'vue'
+import ToggleTheme from './ToggleTheme.vue'
 
 const isLightTheme = ref(true)
 const githubImg = computed(() => isLightTheme.value ? './gh.svg' : './gh-white.svg')

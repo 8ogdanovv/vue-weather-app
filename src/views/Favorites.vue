@@ -1,30 +1,39 @@
 <template>
-  <div v-if="isLoaded === true">
-    <div v-if="favorites.length">
-      <CityWeather
-        v-for="(cityWeather, index) in favorites"
-        :key="index"
-        :cityWeather="cityWeather"
-        :displayDays="7"
-        :index="index"
-      />
+  <div>
+    <div v-if="isLoaded === true" >
+      <div v-if="favorites.length" class="content favorites">
+        <CityWeather
+          v-for="(cityWeather, index) in favorites"
+          :key="index"
+          :cityWeather="cityWeather"
+          :displayDays="days"
+          :index="index"
+        />
+      </div>
+      <div v-else>
+        <h2>There is no pinned cities...</h2>
+        <router-link to="/">Go to the main page</router-link>
+      </div>
+
+      <days-to-display :less="1" :more="7" storageKey="favsDays"/>
     </div>
     <div v-else>
-      <h2>There is no pinned cities...</h2>
-      <router-link to="/">Go to the main page</router-link>
+      {{ $t('loading') }}
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, watch } from 'vue'
-import i18n from '../i18n'
+import i18n from '@/i18n'
 import CityWeather from '@/components/CityWeather.vue'
+import DaysToDisplay from '@/components/DaysToDisplay.vue'
 import getWeather from '@/helpers/weatherHelper'
 import translateToUkrainian from '@/helpers/translateHelper'
 
-const favorites = ref(JSON.parse(localStorage.getItem('favorites')) || [])
 const isLoaded = ref(false)
+const days = ref(sessionStorage.getItem('favsDays') || 1)
+const favorites = ref(JSON.parse(localStorage.getItem('favorites')) || [])
 
 const setWeatherAndLoad = async () => {
   isLoaded.value = false
@@ -39,8 +48,8 @@ const setWeatherAndLoad = async () => {
 
     const currentDate = new Date().toISOString().slice(0, 10)
     const updatedFavorites = storedFavorites.map(async (item) => {
-      if (item.weather.current && item.weather.current.time.slice(0, 10) !== currentDate) {
-        const newWeatherData = await getWeather(item.city.name)
+      if (!item.weather || item.weather.current.time.slice(0, 10) !== currentDate) {
+        const newWeatherData = await getWeather(item.city.latitude, item.city.longitude)
         item.weather = newWeatherData
       }
 

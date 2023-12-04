@@ -1,16 +1,20 @@
 <template>
   <div>
     <div v-if="isLoaded === true">
-      <CityWeather
-        v-for="(cityWeather, index) in storedData"
-        :key="index"
-        :cityWeather="cityWeather"
-        :displayDays="1"
-        :index="index"
-        :home="true"
-      />
+      <div class="content cities">
+        <CityWeather
+          v-for="(cityWeather, index) in storedData"
+          :key="index"
+          :cityWeather="cityWeather"
+          :displayDays="days"
+          :index="index"
+          :home="true"
+        />
 
-      <autocomplete-input />
+        <autocomplete-input />
+      </div>
+
+      <days-to-display :less="1" :more="5" storageKey="homeDays"/>
     </div>
     <div v-else>
       {{ $t('loading') }}
@@ -20,16 +24,18 @@
 
 <script setup>
 import { ref, onMounted, watch } from 'vue'
-import i18n from '../i18n'
+import i18n from '@/i18n'
+import CityWeather from '@/components/CityWeather.vue'
+import AutocompleteInput from '@/components/AutocompleteInput.vue'
+import DaysToDisplay from '@/components/DaysToDisplay.vue'
 import getIPInfo from '@/helpers/ipInfoHelper'
 import getWeather from '@/helpers/weatherHelper'
 import translateToUkrainian from '@/helpers/translateHelper'
 import { extractCurrentCity } from '@/helpers/extractCity'
-import CityWeather from '@/components/CityWeather.vue'
-import AutocompleteInput from '@/components/AutocompleteInput.vue'
 
-const storedData = ref(JSON.parse(sessionStorage.getItem('home')))
 const isLoaded = ref()
+const days = ref(sessionStorage.getItem('homeDays') || 1)
+const storedData = ref(JSON.parse(sessionStorage.getItem('home')))
 
 const setDefaultLanguageAndWeather = async () => {
   isLoaded.value = false
@@ -60,6 +66,3 @@ onMounted(() => {
 
 watch(JSON.parse(sessionStorage.getItem('home')), () => window.location.reload())
 </script>
-
-<style lang="scss">
-</style>

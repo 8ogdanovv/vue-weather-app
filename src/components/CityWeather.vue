@@ -1,17 +1,18 @@
 <template>
   <div class="city-weather">
     <div class="head flex-center-between">
-      <h3>
-        {{ $t('city') }}: {{ props.home ? $t('cityNames').split('_')[index] : $t('cityNamesPinned').split('_')[index] }} |
-        {{ $t('temperature') }}:&nbsp;
-        {{ cityWeather.weather.current.temperature_2m }}
-        {{ cityWeather.weather.current_units.temperature_2m }}
+      <h3 class="head-title">
+        <span class="place-label">{{ $t('city') }}:</span>
+        {{ props.home ? $t('cityNames').split('_')[index] :
+        $t('cityNamesPinned').split('_')[index] }} |
+        <span class="temperature-label">{{ $t('temperature') }}:</span>
+        {{ currentTemperature }}{{ cityWeather.weather.current_units.temperature_2m }}
       </h3>
       <div v-if="props.home" class="controls flex-center-end">
         <button
           class="city-weather-remove-city"
           :title="$t('removeCityTip')"
-          @click="handleRemoveCity"
+          @click="toggleShowRemoveWarning"
         >
           <span class="remove">❌</span>
         </button>
@@ -47,6 +48,15 @@
     />
 
     <warning-error
+      v-if="showRemoveWarning"
+      type="warning"
+      :message="removeWarningMessage"
+      :handler="handleRemoveCity"
+      :state="showRemoveWarning"
+      :closer="toggleShowRemoveWarning"
+    />
+
+    <warning-error
       v-if="showMaxPinnedError"
       type="error"
       :message="maxPinnedErrorMessage"
@@ -58,10 +68,10 @@
 </template>
 
 <script setup>
-import { ref, defineProps, watch } from 'vue'
+import { ref, defineProps, watch, computed } from 'vue'
 import LineChart from './LineChart.vue';
-import router from '@/router'
 import WarningError from './WarningError.vue'
+import getLocal from '@/helpers/getLocal'
 
 const props = defineProps(['cityWeather', 'displayDays', 'index', 'home'])
 const index = ref(props.index)
@@ -70,14 +80,24 @@ const displayDays = ref(props.displayDays || 1)
 
 const showUnpinWarning = ref(false)
 const toggleShowUnpinWarning = () => showUnpinWarning.value = !showUnpinWarning.value
-const unpinWarningMessage = "Are you sure you want to unpin this city?"
+const unpinWarningMessage = getLocal('unpinWarn')
+const showRemoveWarning = ref(false)
+const toggleShowRemoveWarning = () => showRemoveWarning.value = !showRemoveWarning.value
+const removeWarningMessage = getLocal('removeWarn')
 const showMaxPinnedError = ref(false)
 const toggleShowMaxPinnedError = () => showMaxPinnedError.value = !showMaxPinnedError.value
-const maxPinnedErrorMessage = "You have reached the maximum number of pinned cities (5)."
+const maxPinnedErrorMessage = getLocal('maxPinnedErr')
 
 const isCityInFavorites = ref(
   JSON.parse(localStorage.getItem('favorites'))?.some((fav) => fav.city.name === cityWeather.value.city.name) || false
 )
+
+const currentTemperature = computed(() => {
+  const hourly = cityWeather.value.weather.hourly
+  const index = hourly.time.findIndex(t => new Date().toISOString().slice(0, 13) === t.slice(0, 13))
+
+  return hourly.temperature_2m[index]
+})
 
 const handlePinCity = () => {
   const favorites = JSON.parse(localStorage.getItem('favorites')) || []
@@ -147,8 +167,8 @@ watch(JSON.parse(localStorage.getItem('favorites')), () => window.location.reloa
 }
 
 .city-weather {
-  padding: 1rem;
-  margin-top: 1rem;
+  margin: 0.5rem;
+  padding: 0 1rem 1rem;
   width: 68dvw;
   position: relative;
 
@@ -158,6 +178,10 @@ watch(JSON.parse(localStorage.getItem('favorites')), () => window.location.reloa
 
   .controls {
     gap: 0.5rem;
+  }
+
+  &-pin-city.disabled {
+    cursor: default;
   }
 
   &-pin-city,
@@ -200,5 +224,32 @@ watch(JSON.parse(localStorage.getItem('favorites')), () => window.location.reloa
       }
     }
   }
+}
+
+@media (orientation: landscape) {
+  .city-weather {
+    width: 42dvw;
+  }
+}
+
+@media (orientation: portrait) {
+  .city-weather {
+    width: 75dvw;
+  }
+}
+
+.place-label,
+.temperature-label {
+  text-transform: lowercase;
+  font-size: 75%;
+}
+
+.head-title {
+  text-align: left;
+  letter-spacing: -0.05ch;
+  height: 2.25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 </style>

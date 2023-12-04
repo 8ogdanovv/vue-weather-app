@@ -24,8 +24,9 @@ import NavigationBar from './NavigationBar.vue'
   width: 100dvw;
   background: linear-gradient(135deg, var(--shadow) 5%, transparent 60%, var(--grey) 100%);
   box-shadow: 0 0 1.5rem 0.25rem var(--shadow);
-  height: 10rem;
+  height: 8rem;
   padding: 1rem;
+  z-index: 10;
 }
 
 .hello {

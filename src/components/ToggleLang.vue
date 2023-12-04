@@ -33,7 +33,7 @@ const showOptions = ref(false)
 
 const sortedLanguageOptions = computed(() => {
   const sortedOptions = [...languageOptions]
-  sortedOptions.sort((o1, o2) => (i18n.global.locale === o1.value ? -1 : 1))
+  sortedOptions.sort((o1) => (i18n.global.locale === o1.value ? -1 : 1))
   return sortedOptions
 })
 
@@ -55,9 +55,9 @@ onMounted(async () => {
   let defaultLang = localStorage.getItem('lang')
 
   if (!localStorage.getItem('lang')) {
-    const ipInfo = await getIPInfo();
+    const ipInfo = await getIPInfo()
     defaultLang = ipInfo.country.iso_code === 'UA' ? 'uk' : 'en'
-    i18n.global.locale = defaultLang;
+    i18n.global.locale = defaultLang
     localStorage.setItem('lang', defaultLang)
   }
 
@@ -71,8 +71,8 @@ onMounted(async () => {
 }
 
 .select {
-  top: 1rem;
-  left: 2rem;
+  top: 0.5rem;
+  left: 3rem;
   list-style: none;
   margin: 0;
 
@@ -80,7 +80,7 @@ onMounted(async () => {
   background: var(--grey);
   box-shadow: inset 0 0 0.5rem 0.25rem var(--shadow);
 
-  padding: 0 0;
+  padding: 0.5rem 0;
 
   position: absolute;
   display: flex;
@@ -88,16 +88,16 @@ onMounted(async () => {
   flex-direction: column;
   overflow: hidden;
 
-  width: 13rem;
+  width: 10rem;
   height: auto;
 
 
   &-option {
-    padding: 1rem 1rem;
+    padding: 0.5rem 1rem;
 
     &-img {
-      width: 10rem;
-      height: 6rem;
+      width: 8rem;
+      height: 4.8rem;
       box-shadow: 0 0 0.5rem 0.25rem var(--shadow);
       border-radius: 0.5rem;
     }
@@ -107,12 +107,12 @@ onMounted(async () => {
 }
 
 .close {
-  height: 8rem;
+  height: 7rem;
   z-index: 5;
 }
 
 .open {
-  height: 16.5rem;
+  height: 13rem;
 }
 
 .selected {

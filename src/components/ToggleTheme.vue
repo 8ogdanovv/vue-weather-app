@@ -35,7 +35,12 @@ onMounted(() => {
   --grey: #8884;
   --color: #fff;
   --shadow: #fff4;
-  transition: all 1s;
+
+  transition: color 1s, background 1s, backgroundColor 1s, boxShadow 1s;
+  -webkit-transition: color 1s, background 1s, backgroundColor 1s, boxShadow 1s;
+  -moz-transition: color 1s, background 1s, backgroundColor 1s, boxShadow 1s;
+  -ms-transition: color 1s, background 1s, backgroundColor 1s, boxShadow 1s;
+  -o-transition: color 1s, background 1s, backgroundColor 1s, boxShadow 1s;
 }
 
 [data-theme="light"] {
@@ -44,7 +49,12 @@ onMounted(() => {
   --grey: #8884;
   --color: #000;
   --shadow: #0004;
-  transition: all 1s;
+
+  transition: color 1s, background 1s, backgroundColor 1s, boxShadow 1s;
+  -webkit-transition: color 1s, background 1s, backgroundColor 1s, boxShadow 1s;
+  -moz-transition: color 1s, background 1s, backgroundColor 1s, boxShadow 1s;
+  -ms-transition: color 1s, background 1s, backgroundColor 1s, boxShadow 1s;
+  -o-transition: color 1s, background 1s, backgroundColor 1s, boxShadow 1s;
 }
 
 .theme-toggler {
