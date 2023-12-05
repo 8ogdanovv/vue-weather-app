@@ -6,7 +6,10 @@
       <div class="circle yellow"></div>
     </div>
     <div class="text">
-      <h3 class="loading loading0">{{ $t('loading') }}</h3>
+      <p class="loading-wrapper">
+        <h3 class="loading0">{{ $t('loading') }}</h3>
+        <span class="loading">&nbsp;</span>
+      </p>
     </div>
   </div>
 </template>
@@ -39,10 +42,18 @@
     overflow: hidden;
   }
 
+  .loading0,
   .loading {
     position: relative;
-    background: var(--color);
-    color: var(--background);
+    background: var(--color) !important;
+    color: var(--background) !important;
+    border: 1px solid var(--color);
+  }
+
+  .loading-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .text::before {
@@ -65,11 +76,14 @@
     animation: 2s blink infinite;
     background: var(--color);
     color: var(--background);
+    top: 0;
   }
 
   .loading::before {
+    top: 0;
+    transform: translate(0, -50%);
     position: absolute;
-    content: '';
+    content: ' ';
     background: var(--color);
     color: var(--background);
   }
@@ -123,23 +137,28 @@
     height: 20rem;
   }
 
+  .loading0 {
+    width: fit-content;
+  }
+
+  .loading0,
+  .loading {
+    font-size: 2rem;
+    line-height: 4rem;
+  }
+
   .loading {
     position: relative;
+    display: block;
     font-size: 2rem;
-    line-height: 3rem;
+    line-height: 4rem;
     padding-left: 0.5rem;
-    text-align: left;
-    width: 19rem;
+    width: 4vmax;
   }
 
   .loading::after {
     right: 0;
     width: 4rem;
-  }
-
-  .loading::before {
-    left: 2rem;
-    width: 5rem;
   }
 }
 
@@ -162,23 +181,28 @@
     height: 25vmax;
   }
 
+  .loading0 {
+    width: fit-content;
+  }
+
+  .loading0,
+  .loading {
+    font-size: 2rem;
+    line-height: 4rem;
+  }
+
   .loading {
     position: relative;
     display: block;
     font-size: 2rem;
     line-height: 4rem;
     padding-left: 0.5rem;
-    width: 19vmax;
+    width: 4vmax;
   }
 
   .loading::after {
     right: 0;
     width: 4rem;
-  }
-
-  .loading::before {
-    left: 2rem;
-    width: 5rem;
   }
 }
 
