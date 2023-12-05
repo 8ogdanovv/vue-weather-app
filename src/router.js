@@ -14,6 +14,11 @@ const routes = [
     component: Favorites,
   },
   {
+    path: '/preloader',
+    name: 'Preloader',
+    component: () => import('./components/PreLoader.vue'),
+  },
+  {
     path: '/:catchAll(.*)',
     component: () => import('./views/404.vue'),
   },

@@ -1,6 +1,6 @@
 # Vue Weather App
 
-
+[Live Demo](https://vadym4che.github.io/vue-weather-app/)
 
 ## Project structure
 
@@ -96,9 +96,10 @@ Actually I've implemented this * at first step with [geoapify.com](https://apido
 ![autodetect-ip1](https://github.com/vadym4che/vue-weather-app/blob/main/docs/10_autodetect_ip1.jpg)
 ![autodetect-ip2](https://github.com/vadym4che/vue-weather-app/blob/main/docs/10_autodetect_ip2.jpg)
 
-### 11. Preloaders **
+### 11. Preloaders \*\*
 I'm proud of my 'pure CSS' preloader, wich I've developed and integrated where necessary, such as during API requests.  
 ![preloader](https://github.com/vadym4che/vue-weather-app/blob/main/docs/11_preloader.jpg)
+I've created dedicated route to easily watch loader animation without any code changing to invoke it: [PreLoader.vue](https://vadym4che.github.io/vue-weather-app/preloader).
 
 ### 12. Multilingual Support \*\*\*
 It's second thing I was very interested - so I've implemented it firstly withing location autodetect.

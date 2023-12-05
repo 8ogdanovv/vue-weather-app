@@ -18,7 +18,7 @@
   position: fixed;
   width: 100dvw;
   height: 100dvh;
-  z-index: 15;
+  z-index: -1;
 
   .circles,
   .text {
