@@ -23,7 +23,7 @@ body {
   place-items: center;
   min-width: 320px;
   width: 100%;
-  min-height: 100vh;
+  height: 100dvh;
   overflow: hidden;
 
   font-size: 125%;
@@ -37,8 +37,13 @@ h1, h2, h3, h4 {
 
 @media (orientation: portrait) and (max-width: 768px) {
   body {
-    height: calc(100dvh - 8.62rem);
-    overflow: hidden;
+    height: 91.38dvh - 8.62rem !important;
+  }
+}
+
+@media (orientation: landscape) and (max-width: 768px) {
+  body {
+    height: 100dvh;
   }
 }
 
