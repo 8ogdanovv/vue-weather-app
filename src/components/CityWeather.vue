@@ -268,7 +268,7 @@ watch(JSON.parse(localStorage.getItem('favorites')), () => window.location.reloa
 
   .chart {
     position: relative;
-    z-index: 0;
+    z-index: -1;
     transform-origin: 50% 0;
     transform: scale(0.9, 0.85);
   }
@@ -294,5 +294,6 @@ watch(JSON.parse(localStorage.getItem('favorites')), () => window.location.reloa
 
   padding: 0;
   margin: 0;
+  z-index: 15;
 }
 </style>

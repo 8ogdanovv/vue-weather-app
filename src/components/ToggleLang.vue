@@ -40,6 +40,7 @@ const sortedLanguageOptions = computed(() => {
 const setLanguage = (lang) => {
   i18n.global.locale = lang
   localStorage.setItem('lang', lang)
+  selectedLanguage.value = lang
 }
 
 const handleClick = (lang) => {
@@ -64,7 +65,9 @@ onMounted(async () => {
   i18n.global.locale = defaultLang
 })
 
-watch(selectedLanguage.value, () => window.location.reload())
+watch(selectedLanguage, () => {
+  window.location.reload()
+}, { deep: true })
 </script>
 
 <style lang="scss">
