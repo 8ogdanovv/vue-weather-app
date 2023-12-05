@@ -88,14 +88,14 @@ Created a "Favorites" tab where users can add or remove cities. The selected cit
 ### 8. Responsiveness
 Application is responsive. In implementing responsiveness SCSS and CSS @media are used. Also relative units like `rem`, `%` are used.  
 
-<img align="left" width="440" src="https://github.com/vadym4che/vue-weather-app/blob/main/docs/08_responsiveness.jpg" alt="responsivness1">
-<img align="right" width="440" src="https://github.com/vadym4che/vue-weather-app/blob/main/docs/08_responsiveness_code.jpg" alt="responsivness2">
+<img align="left" width="400" src="https://github.com/vadym4che/vue-weather-app/blob/main/docs/08_responsiveness.jpg" alt="responsivness1">
+<img align="right" width="400" src="https://github.com/vadym4che/vue-weather-app/blob/main/docs/08_responsiveness_code.jpg" alt="responsivness2">
 
 ### 9. Day/5 Days Toggle \*
 toggle for displaying "Day" or "5 Days" weather added. The weather card and graph are adapted accordingly, considering the average temperature from hourly statistics for the day.  
 
-<img align="left" width="440" src="https://github.com/vadym4che/vue-weather-app/blob/main/docs/09_days_toggler1.jpg" alt="days-toggler1">
-<img align="right" width="440" src="https://github.com/vadym4che/vue-weather-app/blob/main/docs/09_days_toggler5.jpg" alt="days-toggler2">
+<img align="left" width="400" src="https://github.com/vadym4che/vue-weather-app/blob/main/docs/09_days_toggler1.jpg" alt="days-toggler1">
+<img align="right" width="400" src="https://github.com/vadym4che/vue-weather-app/blob/main/docs/09_days_toggler5.jpg" alt="days-toggler2">
 
 ### 10. Default User Location \*
 The weather is displayed for the user's location determined by IP address.
@@ -105,8 +105,8 @@ Actually I've implemented this * at first step with [geoapify.com](https://apido
 <img src="https://github.com/vadym4che/vue-weather-app/blob/main/docs/logo-geoapify.png" alt="logo geoapify">
 </p>
 
-<img align="left" width="440" src="https://github.com/vadym4che/vue-weather-app/blob/main/docs/10_autodetect_ip1.jpg" alt="autodetect-ip1">
-<img align="right" width="440" src="https://github.com/vadym4che/vue-weather-app/blob/main/docs/10_autodetect_ip2.jpg" alt="autodetect-ip2">
+<img align="left" width="400" src="https://github.com/vadym4che/vue-weather-app/blob/main/docs/10_autodetect_ip1.jpg" alt="autodetect-ip1">
+<img align="right" width="400" src="https://github.com/vadym4che/vue-weather-app/blob/main/docs/10_autodetect_ip2.jpg" alt="autodetect-ip2">
 
 ### 11. Preloaders \*\*
 I'm proud of my 'pure CSS' preloader, wich I've developed and integrated where necessary, such as during API requests.  
@@ -119,8 +119,8 @@ It's second thing I was very interested - so I've implemented it firstly withing
 App providing multilingual support for the interface and API responses in English (en) and Ukrainian (uk).
 It can be toggled via custom select-option component allowing use flags of countries (i.e. the U.K and Ukraine flags in our case).  
 
-<img align="left" width="440" src="https://github.com/vadym4che/vue-weather-app/blob/main/docs/12_multilang-uk.jpg" alt="multilang1">
-<img align="right" width="440" src="https://github.com/vadym4che/vue-weather-app/blob/main/docs/12_multilang-en.jpg" alt="multilang2">
+<img align="left" width="400" src="https://github.com/vadym4che/vue-weather-app/blob/main/docs/12_multilang-uk.jpg" alt="multilang1">
+<img align="right" width="400" src="https://github.com/vadym4che/vue-weather-app/blob/main/docs/12_multilang-en.jpg" alt="multilang2">
 
 ### 13. Day/Night Mode \*\*\*\*
 Rather then implementing a switching between displaying "Day" and "Night" weather (based on `sunrise` and `sunset` API response fields), I've decided to add a toggling between Day and Night theme-view modes.  
