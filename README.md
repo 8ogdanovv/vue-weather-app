@@ -55,10 +55,9 @@ Input field with city autocomplete functionality powered by Google Maps API. To 
 ![autocomplete-input](https://github.com/vadym4che/vue-weather-app/blob/main/docs/01_autocomplete.jpg)
 
 ### 2. API Requests
-Utilize axios for making API requests to ['\?Open-Meteo](https://open-meteo.com/), - free open-source weather API.  
-<p align=center>
-<img src="https://github.com/vadym4che/vue-weather-app/blob/main/docs/logo-geoapify.png" alt="logo geoapify"
-</p>
+Utilize axios for making API requests to [Open-Meteo.com](https://open-meteo.com/), - free open-source weather API.  
+![open-meteo-api](https://github.com/vadym4che/vue-weather-app/blob/main/docs/02_open-meteo-API.jpg)
+
 
 ### 3. Current Weather Card
 Display weather information for the current day in the form of a card.  
@@ -93,6 +92,10 @@ toggle for displaying "Day" or "5 Days" weather added. The weather card and grap
 ### 10. Default User Location \*
 The weather is displayed for the user's location determined by IP address.
 Actually I've implemented this * at first step with [geoapify.com](https://apidocs.geoapify.com/) platform, - I'd say - It is cool (and accurate)!  
+<p align=center>
+<img src="https://github.com/vadym4che/vue-weather-app/blob/main/docs/logo-geoapify.png" alt="logo geoapify"
+</p>
+
 ![autodetect-ip1](https://github.com/vadym4che/vue-weather-app/blob/main/docs/10_autodetect_ip1.jpg)
 ![autodetect-ip2](https://github.com/vadym4che/vue-weather-app/blob/main/docs/10_autodetect_ip2.jpg)
 
