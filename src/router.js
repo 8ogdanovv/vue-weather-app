@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from '@/views/Home.vue';
 import Favorites from '@/views/Favorites.vue';
 
-const base = import.meta.env.MODE === 'production' ? import.meta.env.VITE_BASE_URL : '/';
 
 const routes = [
   {
@@ -22,7 +21,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(base),
+  history: createWebHistory(),
   routes,
 });
 

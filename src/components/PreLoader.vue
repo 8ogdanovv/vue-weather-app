@@ -43,8 +43,6 @@
     position: relative;
     background: var(--color);
     color: var(--background);
-    margin-left: 4rem;
-    display: inline-block;
   }
 
   .text::before {
@@ -63,11 +61,17 @@
 
   .loading::after {
     position: absolute;
-    content: ' ';
+    content: '';
     animation: 2s blink infinite;
     background: var(--color);
     color: var(--background);
-    text-align: right;
+  }
+
+  .loading::before {
+    position: absolute;
+    content: '';
+    background: var(--color);
+    color: var(--background);
   }
 
   .circles {
@@ -121,19 +125,22 @@
 
   .loading {
     position: relative;
-    left: -3rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
     line-height: 3rem;
-    padding-right: 0;
+    padding-left: 0.5rem;
     text-align: left;
+    width: 19rem;
   }
 
   .loading::after {
-    right: -3rem;
-    z-index: 1;
-    width: 3rem;
+    right: 0;
+    width: 4rem;
   }
 
+  .loading::before {
+    left: 2rem;
+    width: 5rem;
+  }
 }
 
 @media (orientation: portrait) {
@@ -151,21 +158,26 @@
 
   .text {
     top: 55%;
-    width: 25rem;
-    height: 25rem;
+    width: 25vmax;
+    height: 25vmax;
   }
 
   .loading {
     position: relative;
-    left: -2rem;
-    font-size: 3rem;
+    display: block;
+    font-size: 2rem;
     line-height: 4rem;
-    width: 18rem;
-    padding-right: 4rem;
+    padding-left: 0.5rem;
+    width: 19vmax;
   }
 
   .loading::after {
-    left: 13rem;
+    right: 0;
+    width: 4rem;
+  }
+
+  .loading::before {
+    left: 2rem;
     width: 5rem;
   }
 }
@@ -207,7 +219,7 @@
     content: '|||'
   }
   100% {
-    content: ' '
+    content: '';
   }
 }
 

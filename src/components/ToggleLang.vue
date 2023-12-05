@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted, computed, watch } from 'vue'
 import i18n from '../i18n'
 import getIPInfo from '@/helpers/ipInfoHelper'
 
@@ -63,6 +63,8 @@ onMounted(async () => {
 
   i18n.global.locale = defaultLang
 })
+
+watch(selectedLanguage.value, () => window.location.reload())
 </script>
 
 <style lang="scss">
