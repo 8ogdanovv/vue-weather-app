@@ -1,6 +1,5 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import Home from '@/views/Home.vue';
-import Favorites from '@/views/Favorites.vue';
+import { createRouter, createWebHistory } from 'vue-router'
+import Home from '@/views/Home.vue'
 
 const routes = [
   {
@@ -11,7 +10,7 @@ const routes = [
   {
     path: '/favorites',
     name: 'Favorites',
-    component: Favorites,
+    component: () => import('./views/Favorites.vue'),
   },
   {
     path: '/preloader',
@@ -25,18 +24,18 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory('/vue-weather-app/'),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 });
 
-let isFirstLoad = !history.length;
+let isFirstLoad = !history.length
 router.beforeEach((to, from, next) => {
   if (isFirstLoad) {
-    isFirstLoad = false;
-    next({ name: 'Home' });
+    isFirstLoad = false
+    next({ name: 'Home' })
   } else {
-    next();
+    next()
   }
-});
+})
 
-export default router;
+export default router
