@@ -103,7 +103,7 @@ toggle for displaying "Day" or "5 Days" weather added. The weather card and grap
 
 ### 10. Default User Location \*
 The weather is displayed for the user's location determined by IP address.
-Actually I've implemented this * at first step with [geoapify.com](https://apidocs.geoapify.com/) platform, - I'd say - It is cool (and accurate)!  
+Actually I've implemented this * at first step with [geoapify.com](https://apidocs.geoapify.com/) platform, - I'd say - It is cool (and accurate)! [IP-geolocation playground](https://apidocs.geoapify.com/playground/ip-geolocation/)  
 
 <p align=center>
 <img src="https://github.com/vadym4che/vue-weather-app/blob/main/docs/logo-geoapify.png" alt="logo geoapify">
