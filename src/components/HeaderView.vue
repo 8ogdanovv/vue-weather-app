@@ -39,6 +39,13 @@ import NavigationBar from './NavigationBar.vue'
   justify-content: flex-start;
 }
 
+
+@media (max-width: 768px) {
+  .hello {
+    font-size: 75%;
+  }
+}
+
 @media (orientation: landscape) {
   .hello {
     left: 20dvw;

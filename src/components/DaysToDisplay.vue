@@ -74,6 +74,12 @@ watch(days, (newValue) => {
   }
 }
 
+@media (max-width: 768px) {
+  .days-to-display button {
+    font-size: 1.25rem;
+  }
+}
+
 @media (orientation: landscape) {
   .days-to-display {
     top: 41.5%;

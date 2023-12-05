@@ -33,7 +33,7 @@
   .text {
     font-size: 3rem;
     text-align: left;
-    color: var(--background);
+    color: var(--color);
     transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
@@ -45,9 +45,9 @@
   .loading0,
   .loading {
     position: relative;
-    background: var(--color) !important;
-    color: var(--background) !important;
-    border: 1px solid var(--color);
+    background: var(--background) !important;
+    color: var(--color) !important;
+    border: 1px solid var(--background);
   }
 
   .loading-wrapper {
@@ -74,8 +74,8 @@
     position: absolute;
     content: '';
     animation: 2s blink infinite;
-    background: var(--color);
-    color: var(--background);
+    background: var(--background);
+    color: var(--color);
     top: 0;
   }
 
@@ -84,8 +84,8 @@
     transform: translate(0, -50%);
     position: absolute;
     content: ' ';
-    background: var(--color);
-    color: var(--background);
+    background: var(--background);
+    color: var(--color);
   }
 
   .circles {
@@ -101,19 +101,19 @@
         background: #00ffff88;
         top: 0;
         left: 0;
-        animation: inOut1 1.5s infinite cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        animation: 2s inOut1  infinite cubic-bezier(0.68, -0.55, 0.265, 1.55);
       }
       &.magenta {
         background: #ff00ff88;
         top: 0;
         left: 0;
-        animation: inOut2 3s infinite cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        animation: -1s 3s inOut2  infinite cubic-bezier(0.68, -0.55, 0.265, 1.55);
       }
       &.yellow {
         background: #ffff0088;
         top: 0;
         left: 0;
-        animation: inOut3 4.5s infinite cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        animation: -4s 6s inOut3  infinite cubic-bezier(0.68, -0.55, 0.265, 1.55);
       }
     }
   }

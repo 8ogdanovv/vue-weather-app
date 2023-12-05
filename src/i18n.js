@@ -54,7 +54,7 @@ const messages = {
     cityUnpinTip: 'Видалити зі збережених',
     removeCityTip: 'Видалити зі списку',
     addCityTip: 'Додати до списку',
-    chartLabelHours: 'Температури Погодинно',
+    chartLabelHours: 'Температури погодинно',
     chartLabelDays: 'Середні на __ днів',
     chartHourlyTip: 'Показати сьогоднішні температури погодинно',
     chartDailyTip: 'Показати t°C на __ днів',
