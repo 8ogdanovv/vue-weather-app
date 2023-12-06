@@ -40,6 +40,8 @@
     justify-content: center;
     transition: all 2s;
     overflow: hidden;
+    border-radius: 50%;
+    animation: 3s edging infinite cubic-bezier(0.645, 0.045, 0.355, 1);
   }
 
   .loading0,
@@ -102,12 +104,14 @@
         top: 0;
         left: 0;
         animation: 2s inOut1  infinite cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        animation-delay: 0ms;
       }
       &.magenta {
         background: #ff00ff88;
         top: 0;
         left: 0;
         animation: -1s 3s inOut2  infinite cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        animation-delay: -1s;
       }
       &.yellow {
         background: #ffff0088;
@@ -164,7 +168,7 @@
 
 @media (orientation: portrait) {
   .circles {
-    top: 35%;
+    top: 35rem;
     width: 10rem;
     height: 10rem;
 
@@ -176,8 +180,8 @@
   }
 
   .text {
-    top: 55%;
-    width: 25vmax;
+    top: 55rem;
+    width: 25rem;
     height: 25vmax;
   }
 
@@ -247,69 +251,9 @@
   }
 }
 
-@keyframes waving {
-  0% {
-    background: linear-gradient(0deg, cyan, magenta, yellow);
-  }
-  5% {
-    background: linear-gradient(18deg, cyan, magenta, yellow);
-  }
-  10% {
-    background: linear-gradient(36deg, cyan, magenta, yellow);
-  }
-  15% {
-    background: linear-gradient(54deg, cyan, magenta, yellow);
-  }
-  20% {
-    background: linear-gradient(72deg, cyan, magenta, yellow);
-  }
-  25% {
-    background: linear-gradient(90deg, cyan, magenta, yellow);
-  }
-  30% {
-    background: linear-gradient(108deg, cyan, magenta, yellow);
-  }
-  35% {
-    background: linear-gradient(126deg, cyan, magenta, yellow);
-  }
-  40% {
-    background: linear-gradient(134deg, cyan, magenta, yellow);
-  }
-  45% {
-    background: linear-gradient(162deg, cyan, magenta, yellow);
-  }
-  50% {
-    background: linear-gradient(180deg, cyan, magenta, yellow);
-  }
-  55% {
-    background: linear-gradient(198deg, cyan, magenta, yellow);
-  }
-  60% {
-    background: linear-gradient(216deg, cyan, magenta, yellow);
-  }
-  65% {
-    background: linear-gradient(234deg, cyan, magenta, yellow);
-  }
-  70% {
-    background: linear-gradient(252deg, cyan, magenta, yellow);
-  }
-  75% {
-    background: linear-gradient(270deg, cyan, magenta, yellow);
-  }
-  80% {
-    background: linear-gradient(288deg, cyan, magenta, yellow);
-  }
-  85% {
-    background: linear-gradient(306deg, cyan, magenta, yellow);
-  }
-  90% {
-    background: linear-gradient(324deg, cyan, magenta, yellow);
-  }
-  95% {
-    background: linear-gradient(342deg, cyan, magenta, yellow);
-  }
-  100% {
-    background: linear-gradient(360deg, cyan, magenta, yellow);
-  }
+@keyframes edging {
+  0% {}
+  50% { border-radius: 0; }
+  100% {}
 }
 </style>
