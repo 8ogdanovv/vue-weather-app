@@ -7,14 +7,14 @@
           :cityWeather="cityWeather"
           :displayDays="days"
           :index="index"
-        />
-      </div>
-      <div v-else>
-        <h2 style="padding: 1rem;">{{ $t('noPinned')}}</h2>
-        <router-link to="/">{{ $t('backToHome') }}</router-link>
-      </div>
+          />
+        </div>
+        <div v-else>
+          <h2 style="padding: 1rem;">{{ $t('noPinned')}}</h2>
+          <router-link to="/">{{ $t('backToHome') }}</router-link>
+        </div>
 
-      <days-to-display :less="1" :more="7" storageKey="favsDays"/>
+        <days-to-display :less="1" :more="7" storageKey="favsDays" v-if="favorites.length" />
     </div>
     <div v-else class="wrapper">
       <pre-loader />
