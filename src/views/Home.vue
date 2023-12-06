@@ -14,7 +14,7 @@
 
     </div>
 
-    <days-to-display :less="1" :more="5" storageKey="homeDays"/>
+    <days-to-display :less="1" :more="5" storageKey="homeDays" v-if="storedData.length" />
   </div>
   <div v-else class="wrapper">
     <pre-loader />
