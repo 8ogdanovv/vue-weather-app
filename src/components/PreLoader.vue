@@ -41,7 +41,7 @@
     transition: all 2s;
     overflow: hidden;
     border-radius: 50%;
-    animation: 3s edging infinite cubic-bezier(0.645, 0.045, 0.355, 1);
+    animation: edging 3s cubic-bezier(0.645, 0.045, 0.355, 1) infinite;
   }
 
   .loading0,
@@ -69,7 +69,7 @@
     z-index: -1;
     transform: scale(5);
     background: linear-gradient(0deg, cyan, magenta, yellow);
-    animation: 6s rotate infinite cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    animation: rotate 6s cubic-bezier(0.6, -0.28, 0.735, 0.045) infinite;
   }
 
   .loading::after {
@@ -93,7 +93,7 @@
   .circles {
     transform: translate(-50%, -50%);
     transform-origin: 0 0;
-    animation: rotate 3s infinite cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation: rotate 3s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
 
     .circle {
       position: absolute;
@@ -103,21 +103,21 @@
         background: #00ffff88;
         top: 0;
         left: 0;
-        animation: 2s inOut1  infinite cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        animation: inOut1 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
         animation-delay: 0ms;
       }
       &.magenta {
         background: #ff00ff88;
         top: 0;
         left: 0;
-        animation: -1s 3s inOut2  infinite cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        animation: inOut2 3s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
         animation-delay: -1s;
       }
       &.yellow {
         background: #ffff0088;
         top: 0;
         left: 0;
-        animation: -4s 6s inOut3  infinite cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        animation: inOut3 6s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
       }
     }
   }
