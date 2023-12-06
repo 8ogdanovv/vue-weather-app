@@ -35,6 +35,23 @@ h1, h2, h3, h4 {
   padding: 0;
 }
 
+a {
+  color: var(--color);
+  text-decoration: none;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+}
+
+a:hover {
+
+  text-shadow: 0 0 3px var(--background);
+  text-decoration: underline;
+  font-weight: bold;
+}
+
 @media (orientation: portrait) and (max-width: 768px) {
   body {
     height: 91.38dvh - 8.62rem !important;
@@ -106,8 +123,8 @@ button {
   cursor: pointer;
 }
 
-button::hover > * {
-  background: #000 !important;
+button::hover span {
+  background-color: var(--shadow);
 }
 
 .flex-center-between {

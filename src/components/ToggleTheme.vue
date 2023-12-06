@@ -35,6 +35,7 @@ onMounted(() => {
   --grey: #8884;
   --color: #fff;
   --shadow: #fff4;
+  --text8: #fff8;
 
   transition: color 1s, background 1s, backgroundColor 1s, boxShadow 1s;
   -webkit-transition: color 1s, background 1s, backgroundColor 1s, boxShadow 1s;
@@ -49,6 +50,7 @@ onMounted(() => {
   --grey: #8884;
   --color: #000;
   --shadow: #0004;
+  --text8: #0008;
 
   transition: color 1s, background 1s, backgroundColor 1s, boxShadow 1s;
   -webkit-transition: color 1s, background 1s, backgroundColor 1s, boxShadow 1s;

@@ -49,12 +49,14 @@ watch(days, (newValue) => {
     font-size: 2rem;
     background: linear-gradient(160deg, transparent, var(--grey), var(--background));
     box-shadow: inset 0 0 0.5rem 0.25rem var(--shadow);
-    color: var(--background);
-
+    color: var(--text8);
     padding: 1rem;
+    transition: all 0.5s;
 
     &:hover {
-
+      background: linear-gradient(-20deg, transparent, var(--grey), var(--background));
+      box-shadow: inset 0 0 0.5rem 0.5rem var(--shadow);
+      color: var(--color);
     }
 
     &.active {

@@ -1,9 +1,9 @@
 <template>
   <div class="not-found">
-    <h1>No such a route found...</h1>
+    <h1>{{ $t('404')}}</h1>
 
     <router-link to="/" class="link">
-      Back to home
+      {{ $t('back404') }}
       <br />
       <br />
       <span id="this">this.</span>
@@ -13,12 +13,12 @@
 
 <style scoped>
 .not-found {
-  padding-top: 7dvh;
+  margin-top: -10vmax;
   display: flex;
   flex-direction: column;
   height: calc(100dvh - 8.62rem);
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   position: relative;
 }
 
@@ -31,6 +31,7 @@ a:active {
   text-decoration: underline dotted var(--grey);
 }
 .link {
+  padding: 1rem;
   text-decoration: none;
   font-size: 200%;
 }

@@ -110,4 +110,18 @@ onMounted(() => {
 .abc {
   text-align: left;
 }
+
+@media (max-width: 768px) {
+  .authority {
+    font-size: smaller;
+  }
+
+  .footer {
+    padding: 0 1rem;
+  }
+
+  .logo {
+    height: 5rem;
+  }
+}
 </style>

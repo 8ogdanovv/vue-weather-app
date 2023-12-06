@@ -18,6 +18,12 @@
     font-size: 2rem;
     transition: all 1s;
 
+    &:hover {
+      background: var(--grey);
+      box-shadow: inset 0 0 0.25rem 0.1rem var(--shadow);
+      text-decoration: none;
+    }
+
     &.router-link-active {
       font-weight: bold;
       background: var(--grey);
@@ -28,7 +34,7 @@
 
 @media (max-width: 1200px) {
   .nav {
-    transform: scale(0.75);
+    transform: scale(0.75) translate(10%, 0);
   }
 }
 

@@ -25,7 +25,6 @@ import NavigationBar from './NavigationBar.vue'
   background: linear-gradient(135deg, var(--shadow) 5%, transparent 60%, var(--grey) 100%);
   box-shadow: 0 0 1.5rem 0.25rem var(--shadow);
   height: 8rem;
-  padding: 1rem;
   z-index: 10;
 }
 
@@ -43,6 +42,10 @@ import NavigationBar from './NavigationBar.vue'
 @media (max-width: 768px) {
   .hello {
     font-size: 75%;
+  }
+
+  .header {
+    padding: 0 1rem;
   }
 }
 

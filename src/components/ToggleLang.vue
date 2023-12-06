@@ -158,4 +158,10 @@ watch(selectedLanguage, () => {
     height: 13rem;
   }
 }
+
+@media (max-width: 768px) {
+  .select {
+    left: 2rem;
+  }
+}
 </style>

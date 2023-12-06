@@ -10,8 +10,8 @@
         />
       </div>
       <div v-else>
-        <h2>There is no pinned cities...</h2>
-        <router-link to="/">Go to the main page</router-link>
+        <h2 style="padding: 1rem;">{{ $t('noPinned')}}</h2>
+        <router-link to="/">{{ $t('backToHome') }}</router-link>
       </div>
 
       <days-to-display :less="1" :more="7" storageKey="favsDays"/>

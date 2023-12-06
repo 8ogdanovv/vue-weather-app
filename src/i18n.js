@@ -15,6 +15,8 @@ const messages = {
     cities: 'Places',
     temperature: 'Temperature',
     loading: 'Loading',
+    noPinned: 'There is no pinned cities...',
+    backToHome: 'Back to the main page',
     pinCityTip: 'Pin this place',
     alreadyPinnedTip: 'Already pinned place',
     cityUnpinTip: 'Unpin this place',
@@ -33,7 +35,9 @@ const messages = {
     removeWarn: 'Are you sure you want to remove this place from the list?',
     maxPinnedErr: 'You have reached the maximum number of pinned places (5).',
     maxListedErr: 'You have reached the maximum number of listed places (5).',
-    inListErr: 'You have already added this place to list.'
+    inListErr: 'You have already added this place to list.',
+    404: 'No such a route found...',
+    back404: 'Back to the main',
   },
   uk: {
     lang: 'Ukrainian',
@@ -49,6 +53,8 @@ const messages = {
     cities: 'Місця',
     temperature: 'Температура',
     loading: 'Завантаження',
+    noPinned: 'Немає збережених місць...',
+    backToHome: 'Повернутися на головну сторінку',
     pinCityTip: 'До збережених',
     alreadyPinnedTip: 'Наразі у збережених',
     cityUnpinTip: 'Видалити зі збережених',
@@ -67,7 +73,9 @@ const messages = {
     removeWarn: 'Ви впевнені, що хочете видалити місце з цього списку?',
     maxPinnedErr: 'Ви досягли максимальної кількості збережених місць (5).',
     maxListedErr: 'Ви досягли максимальної кількості місць у списку (5).',
-    inListErr: 'Ви вже додали це місце до списку.'
+    inListErr: 'Ви вже додали це місце до списку.',
+    404: 'Такої сторінки не знайдено...',
+    back404: 'Повернутися на головну',
   },
 }
 
