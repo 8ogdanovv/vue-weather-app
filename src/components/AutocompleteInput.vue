@@ -5,7 +5,7 @@
       @set="setCityToAdd"
       :placeholder="'🔍' + $t('autocomplete')"
     />
-    <button class="add-city-button" @click="handleAddLocation" :title="$t('addCityTip')">+</button>
+    <button class="add-city-button" ref="addButtonRef" @click="handleAddLocation" :title="$t('addCityTip')">+</button>
 
     <warning-error
       v-if="showMaxListedError"
@@ -25,7 +25,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { GoogleAutocomplete } from 'vue3-google-autocomplete'
 import WarningError from './WarningError.vue'
 import { extractCity } from '@/helpers/extractCity'
@@ -34,6 +34,7 @@ import getLocal from '@/helpers/getLocal'
 
 const API_KEY = computed(() => import.meta.env.VITE_GMAPS_API_KEY)
 const cityToAdd = ref()
+const addButtonRef = ref(null)
 
 const showMaxListedError = ref(false)
 const toggleShowMaxListedError = () => showMaxListedError.value = !showMaxListedError.value
@@ -72,6 +73,21 @@ const handleAddLocation = async () => {
   document.querySelector('.pac-target-input').value = ''
   window.location.reload()
 }
+
+onMounted(() => {
+  const toggleHoverStyle = (e) => {
+    const inputValue = e.target.value
+    const buttonElement = document.querySelector('.add-city-button')
+
+    if (inputValue.trim() === '') {
+      buttonElement.classList.remove('hover-style')
+    } else {
+      buttonElement.classList.add('hover-style')
+    }
+  }
+
+  document.querySelector('.add-city>input').addEventListener('input', toggleHoverStyle)
+})
 </script>
 
 <style lang="scss">
@@ -127,6 +143,12 @@ const handleAddLocation = async () => {
     background: linear-gradient(160deg, transparent, var(--grey), var(--background));
     box-shadow: inset 0 0 0.5rem 0.25rem var(--shadow);
     color: var(--gray);
+
+    &.hover-style:hover {
+      background: linear-gradient(-20deg, transparent, var(--grey), var(--background));
+      box-shadow: inset 0 0 0.5rem 0.5rem var(--shadow);
+      color: var(--color);
+    }
   }
 }
 

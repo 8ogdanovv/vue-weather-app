@@ -1,5 +1,11 @@
 <template>
-  <button @click="toggleTheme" class="theme-toggler" :title="$t('toggleThemeTip')">{{ themeIcon }}</button>
+  <button
+    @click="toggleTheme"
+    class="theme-toggler"
+    :title="$t('toggleThemeTip')"
+  >
+    {{ themeIcon }}
+  </button>
 </template>
 
 <script setup>
@@ -66,5 +72,10 @@ onMounted(() => {
   font-size: 4rem;
   position: relative;
   z-index: 5;
+  transition: transform 0.5s;
+}
+
+.theme-toggler:hover {
+  transform: scale(1.2);
 }
 </style>
